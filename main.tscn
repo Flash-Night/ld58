@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct20b4t3wvw83"]
+[gd_scene load_steps=2 format=3 uid="uid://dt4nq0nkmjiit"]
 
-[ext_resource type="Script" uid="uid://cycdo707stqds" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" path="res://main.gd" id="1_ig7tw"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("startbutton")]
 layout_mode = 3
@@ -19,3 +19,11 @@ offset_top = 266.0
 offset_right = 648.0
 offset_bottom = 363.0
 text = "START"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 396.0
+offset_right = 649.0
+offset_bottom = 493.0
+text = "END"
