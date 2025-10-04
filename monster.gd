@@ -24,7 +24,8 @@ var powerLabel:Label
 func _ready():
 	powerLabel = get_node("PowerLabel")
 
-func init(_isEnemy:bool, _id:int) -> Vector2i:
+func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
+	#print(_isEnemy,_id)
 	isEnemy = _isEnemy
 	if _id > -1 :
 		id = _id
@@ -33,7 +34,10 @@ func init(_isEnemy:bool, _id:int) -> Vector2i:
 	#var lbtext = str(id) + ": " + str(data["power"])
 	powerLabel.text = str(power)
 	
-	pos = Vector2i(int(self.position.x / 64),int(self.position.y / 64))
+	if _pos.x < 0:
+		pos = Vector2i(int(self.position.x / 64),int(self.position.y / 64))
+	else:
+		pos = _pos
 	self.position.x = pos.x * 64 + 32
 	self.position.y = pos.y * 64 + 32
 	return pos

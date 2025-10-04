@@ -20,8 +20,10 @@ func addPet(id:int, pos:Vector2i) -> bool:
 		return false
 	var pet = monsterScene.instantiate()
 	self.add_child(pet)
-	pet.init(false, id)
+	pet.init(false, id, pos)
 	petList.append(pet)
+	monsterDict[pos] = pet
+	refresh(pos)
 	return true
 
 func removeAllPets() -> Array:
