@@ -22,8 +22,11 @@ var powerLabel:Label
 func _ready():
 	powerLabel = get_node("PowerLabel")
 
-func init() -> Vector2i:
+func init(_id:int) -> Vector2i:
+	if _id > -1 :
+		id = _id
 	data = monsterData[id]
+	#var lbtext = str(id) + ": " + str(data["power"])
 	powerLabel.text = str(data["power"])
 	
 	pos = Vector2i(int(self.position.x / 64),int(self.position.y / 64))
