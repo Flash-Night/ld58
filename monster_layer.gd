@@ -9,4 +9,3 @@ func _ready() -> void:
 	for _child in monsterList:
 		var pos = _child.init()
 		monsterDict[pos] = _child
-		print(pos)

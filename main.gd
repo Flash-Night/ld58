@@ -13,7 +13,6 @@ func _ready():
 	mybutton = load("res://mybutton.tscn")
 
 func _start():
-	print("helloworld")
 	get_tree().change_scene_to_file("res://game.tscn")
 
 func _createMyButton():
