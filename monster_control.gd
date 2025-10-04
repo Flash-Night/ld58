@@ -45,7 +45,7 @@ func drop(pos):
 	var s=control.selecting
 	if isDroppable(pos, false) && pets_used[s]==false && using_pets_id[s]!=-1:
 		monsterlayer.addPet(using_pets_id[s], pos)
-	pets_used[s]=true
+		pets_used[s]=true
 	remove_tile_buttons()
 
 func remove_tile_buttons()->void:
