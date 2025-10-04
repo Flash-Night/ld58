@@ -38,7 +38,7 @@ func isMovable(targetpos:Vector2i) -> bool:
 	if map.get_cell_source_id(targetpos) != 0:
 		return false
 	if monsterLayer.monsterDict.has(targetpos):
-		return false
+		return !monsterLayer.monsterDict[targetpos].isEnemy
 	return true
 
 

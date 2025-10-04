@@ -1,6 +1,6 @@
 extends Node2D
 
-var monsterList:Array[Node]
+#var monsterList:Array[Node]
 var petList:Array[Node]
 var monsterDict:Dictionary
 
@@ -10,7 +10,7 @@ func _ready() -> void:
 	monsterScene = load("res://monster.tscn")
 	monsterDict = {}
 	petList = []
-	monsterList = get_children(false)
+	var monsterList = get_children(false)
 	for _child in monsterList:
 		var pos = _child.init(true, -1)
 		monsterDict[pos] = _child
@@ -38,7 +38,6 @@ func removeAllPets() -> Array:
 	return arr
 
 func refresh(center:Vector2i) -> void:
-	var captureArr = []
 	for dx in range(-1,2):
 		for dy in range(-1,2):
 			var pos = Vector2i(center.x + dx, center.y + dy)
@@ -46,6 +45,6 @@ func refresh(center:Vector2i) -> void:
 				var c_monster = monsterDict[pos]
 				c_monster.refresh()
 				if c_monster.isEnemy:
-					if c_monster.isCaptured():
-						captureArr.append(c_monster)
-	#captureArr
+					var result = c_monster.capture()
+					if result:
+						petList.append(c_monster)

@@ -11,6 +11,18 @@ static var monsterData:Dictionary = {
 	1:{
 		"power": 2,
 		"type": 1
+	},
+	2:{
+		"power": 4,
+		"type": 0
+	},
+	3:{
+		"power": 5,
+		"type": 0
+	},
+	4:{
+		"power": 6,
+		"type": 0
 	}
 }
 
@@ -77,7 +89,7 @@ func refresh():
 			if target_monster.type > 0:
 				target_monster
 
-func isCaptured() -> bool:
+func capture() -> bool:
 	if !isEnemy:
 		return false
 	var posArr = [
@@ -95,4 +107,8 @@ func isCaptured() -> bool:
 			return false
 		if pet.power <= self.power:
 			return false
+	
+	isEnemy = false
+	greenflag.show()
+	redflag.hide()
 	return true
