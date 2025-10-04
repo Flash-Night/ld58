@@ -16,20 +16,47 @@ static var monsterData:Dictionary = {
 
 var data:Dictionary
 var pos:Vector2i
+var isEnemy:bool
 
+var power:int
 var powerLabel:Label
 
 func _ready():
 	powerLabel = get_node("PowerLabel")
 
-func init(_id:int) -> Vector2i:
+func init(_isEnemy:bool, _id:int) -> Vector2i:
+	isEnemy = _isEnemy
 	if _id > -1 :
 		id = _id
 	data = monsterData[id]
+	power = data["power"]
 	#var lbtext = str(id) + ": " + str(data["power"])
-	powerLabel.text = str(data["power"])
+	powerLabel.text = str(power)
 	
 	pos = Vector2i(int(self.position.x / 64),int(self.position.y / 64))
 	self.position.x = pos.x * 64 + 32
 	self.position.y = pos.y * 64 + 32
 	return pos
+
+func refresh():
+	pass
+
+func isCaptured() -> bool:
+	if !isEnemy:
+		return false
+	var posArr = [
+		Vector2i(pos.x - 1, pos.y),
+		Vector2i(pos.x + 1, pos.y),
+		Vector2i(pos.x, pos.y - 1),
+		Vector2i(pos.x, pos.y + 1)
+	]
+	var monsterDict = get_parent().monsterDict
+	for targetpos in posArr:
+		if !monsterDict.has(targetpos):
+			return false
+		var pet = monsterDict[targetpos]
+		if pet.isEnemy:
+			return false
+		if pet.power <= self.power:
+			return false
+	return true
