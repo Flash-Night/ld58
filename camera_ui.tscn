@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://5rp7htiqtlyd"]
 
 [ext_resource type="Script" uid="uid://bb7dygvxnsmso" path="res://camera_2d.gd" id="1_js8ic"]
-[ext_resource type="PackedScene" uid="uid://dtoriorndbbrh" path="res://monster_using.tscn" id="2_r0gvv"]
+[ext_resource type="Script" uid="uid://l4vnlsubjoxy" path="res://control.gd" id="2_v183y"]
 
 [node name="Camera2D" type="Camera2D"]
 z_index = 2
@@ -12,59 +12,4 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Button" parent="Control" instance=ExtResource("2_r0gvv")]
-layout_mode = 0
-offset_left = -576.0
-offset_top = 232.0
-offset_right = -484.0
-offset_bottom = 321.0
-
-[node name="Button2" parent="Control" instance=ExtResource("2_r0gvv")]
-layout_mode = 0
-offset_left = -448.0
-offset_top = 232.0
-offset_right = -356.0
-offset_bottom = 321.0
-
-[node name="Button3" parent="Control" instance=ExtResource("2_r0gvv")]
-layout_mode = 0
-offset_left = -320.0
-offset_top = 232.0
-offset_right = -228.0
-offset_bottom = 321.0
-
-[node name="Button4" parent="Control" instance=ExtResource("2_r0gvv")]
-layout_mode = 0
-offset_left = -192.0
-offset_top = 232.0
-offset_right = -100.0
-offset_bottom = 321.0
-
-[node name="Button5" parent="Control" instance=ExtResource("2_r0gvv")]
-layout_mode = 0
-offset_left = -64.0
-offset_top = 232.0
-offset_right = 28.0
-offset_bottom = 321.0
-
-[node name="Button6" parent="Control" instance=ExtResource("2_r0gvv")]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 232.0
-offset_right = 156.0
-offset_bottom = 321.0
-
-[node name="Button7" parent="Control" instance=ExtResource("2_r0gvv")]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 232.0
-offset_right = 284.0
-offset_bottom = 321.0
-
-[node name="Button8" parent="Control" instance=ExtResource("2_r0gvv")]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 232.0
-offset_right = 412.0
-offset_bottom = 321.0
+script = ExtResource("2_v183y")
