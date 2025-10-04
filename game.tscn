@@ -5,10 +5,7 @@
 [ext_resource type="Script" uid="uid://4mgk2t02rju7" path="res://monster_layer.gd" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://canlrp32scija" path="res://monster.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://5rp7htiqtlyd" path="res://camera_ui.tscn" id="3_feb5d"]
-<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://b8lumeqhn4xss" path="res://monster_control.gd" id="6_ryrav"]
-=======
->>>>>>> 42896ea6911ba2b5e5f052b53e04f38110c3b8c3
 
 [node name="Game" type="Node2D"]
 
