@@ -46,6 +46,6 @@ func refresh(center:Vector2i) -> void:
 				var c_monster = monsterDict[pos]
 				c_monster.refresh()
 				if c_monster.isEnemy:
-					if c_monster.isCaptrued():
+					if c_monster.isCaptured():
 						captureArr.append(c_monster)
 	#captureArr

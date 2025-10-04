@@ -14,6 +14,7 @@ func _ready() -> void:
 		using_pets_id.append(-1)
 		pets_used.append(false)
 	using_pets_id[0]=0	
+	using_pets_id[1]=1	
 	control.game_control=self
 	control.bconnect()
 
