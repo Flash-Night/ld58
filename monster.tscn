@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://canlrp32scija"]
+[gd_scene load_steps=5 format=3 uid="uid://canlrp32scija"]
 
 [ext_resource type="Script" uid="uid://sokpu5qrhrvu" path="res://monster.gd" id="1_s3gyj"]
 [ext_resource type="Texture2D" uid="uid://bawtve50f2r23" path="res://icon.svg" id="2_mrqeg"]
+[ext_resource type="Texture2D" uid="uid://oxkte1kofw0h" path="res://images/redflag.png" id="3_ga5te"]
+[ext_resource type="Texture2D" uid="uid://bwdi84l00h5p6" path="res://images/greenflag.png" id="3_vr0w3"]
 
 [node name="Monster" type="Node2D"]
 script = ExtResource("1_s3gyj")
@@ -17,3 +19,11 @@ offset_right = 13.0
 offset_bottom = -19.0
 text = "1"
 horizontal_alignment = 1
+
+[node name="GreenFlag" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("3_vr0w3")
+
+[node name="RedFlag" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("3_ga5te")

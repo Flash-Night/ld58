@@ -19,9 +19,14 @@ var pos:Vector2i
 var isEnemy:bool
 
 var power:int
+
+var redflag:Sprite2D
+var greenflag:Sprite2D
 var powerLabel:Label
 
 func _ready():
+	redflag = get_node("RedFlag")
+	greenflag = get_node("GreenFlag")
 	powerLabel = get_node("PowerLabel")
 
 func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
@@ -32,6 +37,13 @@ func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 	data = monsterData[id]
 	power = data["power"]
 	#var lbtext = str(id) + ": " + str(data["power"])
+	
+	if isEnemy:
+		redflag.show()
+		greenflag.hide()
+	else:
+		greenflag.show()
+		redflag.hide()
 	powerLabel.text = str(power)
 	
 	if _pos.x < 0:
