@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bat13lcaesi08"
-path="res://.godot/imported/mossmother.jpg-430eac130cba4daac5d416e1ae14b00e.ctex"
+uid="uid://cfh66moglg3pn"
+path="res://.godot/imported/default_ground.png-9d6dc870ead3ec268fdcb3a3d2a95587.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/mossmother.jpg"
-dest_files=["res://.godot/imported/mossmother.jpg-430eac130cba4daac5d416e1ae14b00e.ctex"]
+source_file="res://images/default_ground.png"
+dest_files=["res://.godot/imported/default_ground.png-9d6dc870ead3ec268fdcb3a3d2a95587.ctex"]
 
 [params]
 

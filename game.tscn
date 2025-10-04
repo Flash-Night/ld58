@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cppyyv1etyp1c"]
+[gd_scene load_steps=2 format=4 uid="uid://cppyyv1etyp1c"]
 
-[ext_resource type="Texture2D" uid="uid://bat13lcaesi08" path="res://images/mossmother.jpg" id="1_80nbo"]
+[ext_resource type="TileSet" uid="uid://ct4qtskumin4" path="res://maptile.tres" id="1_80nbo"]
 
 [node name="Game" type="Node2D"]
 
-[node name="Mossmother" type="Sprite2D" parent="."]
-position = Vector2(130, 189)
-texture = ExtResource("1_80nbo")
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAA=")
+tile_set = ExtResource("1_80nbo")
