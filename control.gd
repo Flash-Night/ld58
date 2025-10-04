@@ -5,6 +5,8 @@ var selecting:int
 var buttons:Array[Button]
 var max_using = 8
 func _ready() -> void:
+	pass
+func bconnect()->void:
 	var scene=preload("res://monster_using.tscn")
 	buttons.resize(max_using)
 	for i in range(max_using):
@@ -12,8 +14,7 @@ func _ready() -> void:
 		add_child(buttons[i])
 		buttons[i].position.x=-600+i*100
 		buttons[i].position.y=250
-
-func bconnect()->void:
+		buttons[i].z_index=20
 	for i in range(max_using):
 		buttons[i].button_down.connect(Callable(game_control,"place_tile_buttons"))
 	

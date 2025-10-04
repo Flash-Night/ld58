@@ -18,6 +18,7 @@ func place_tile_buttons()->void:
 			add_child(buttons[k])
 			buttons[k].position.x=x-7*32+i*64
 			buttons[k].position.y=y-7*32+j*64
+			buttons[k].z_index=10
 			
 func remove_tile_buttons()->void:
 	for b in buttons:
