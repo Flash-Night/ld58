@@ -19,15 +19,19 @@ var pos:Vector2i
 var isEnemy:bool
 
 var power:int
+var type:int
 
 var redflag:Sprite2D
 var greenflag:Sprite2D
 var powerLabel:Label
 
+var layer:Node2D
+
 func _ready():
 	redflag = get_node("RedFlag")
 	greenflag = get_node("GreenFlag")
 	powerLabel = get_node("PowerLabel")
+	layer = get_parent()
 
 func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 	#print(_isEnemy,_id)
@@ -36,6 +40,7 @@ func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 		id = _id
 	data = monsterData[id]
 	power = data["power"]
+	type = data["type"]
 	#var lbtext = str(id) + ": " + str(data["power"])
 	
 	if isEnemy:
@@ -55,7 +60,22 @@ func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 	return pos
 
 func refresh():
-	pass
+	var monsterDict = layer.monsterDict
+	var posArr = [
+		Vector2i(pos.x - 1, pos.y - 1),
+		Vector2i(pos.x - 1, pos.y),
+		Vector2i(pos.x - 1, pos.y + 1),
+		Vector2i(pos.x, pos.y - 1),
+		Vector2i(pos.x, pos.y + 1),
+		Vector2i(pos.x + 1, pos.y - 1),
+		Vector2i(pos.x + 1, pos.y),
+		Vector2i(pos.x + 1, pos.y + 1)
+	]
+	for targetpos in posArr:
+		if monsterDict.has(targetpos):
+			var target_monster = monsterDict[targetpos]
+			if target_monster.type > 0:
+				target_monster
 
 func isCaptured() -> bool:
 	if !isEnemy:
@@ -66,7 +86,7 @@ func isCaptured() -> bool:
 		Vector2i(pos.x, pos.y - 1),
 		Vector2i(pos.x, pos.y + 1)
 	]
-	var monsterDict = get_parent().monsterDict
+	var monsterDict = layer.monsterDict
 	for targetpos in posArr:
 		if !monsterDict.has(targetpos):
 			return false

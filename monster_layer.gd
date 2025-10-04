@@ -38,11 +38,14 @@ func removeAllPets() -> Array:
 	return arr
 
 func refresh(center:Vector2i) -> void:
+	var captureArr = []
 	for dx in range(-1,2):
 		for dy in range(-1,2):
 			var pos = Vector2i(center.x + dx, center.y + dy)
 			if(monsterDict.has(pos)):
 				var c_monster = monsterDict[pos]
 				c_monster.refresh()
-	for monster in monsterList:
-		monster.isCaptured()
+				if c_monster.isEnemy:
+					if c_monster.isCaptrued():
+						captureArr.append(c_monster)
+	#captureArr
