@@ -20,6 +20,12 @@ func bconnect()->void:
 	_ready()
 	for i in range(max_using):
 		buttons[i].button_down.connect(Callable(game_control,"place_tile_buttons"))
+		
+func show_button_monster (x:int,id:int)->void:
+	_ready()
+	var monster=buttons[x].get_node("Monster")
+	monster.init_show_only(id)
+	
 func _process(delta: float) -> void:
 	#selecting=0
 	for i in range(max_using):

@@ -13,11 +13,9 @@ func _ready() -> void:
 	for i in range(using_max):
 		using_pets_id.append(-1)
 		pets_used.append(false)
-	using_pets_id[0]=0	
-	using_pets_id[1]=1
-	using_pets_id[2]=2
-	using_pets_id[3]=3
-	using_pets_id[4]=4
+	for i in range(0,5):
+		using_pets_id[i]=i	
+		control.show_button_monster(i,i)
 	control.game_control=self
 	control.bconnect()
 

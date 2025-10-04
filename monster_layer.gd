@@ -43,8 +43,8 @@ func refresh(center:Vector2i) -> void:
 			var pos = Vector2i(center.x + dx, center.y + dy)
 			if(monsterDict.has(pos)):
 				var c_monster = monsterDict[pos]
-				c_monster.refresh()
+				c_monster.refresh(monsterDict)
 				if c_monster.isEnemy:
-					var result = c_monster.capture()
+					var result = c_monster.capture(monsterDict)
 					if result:
 						petList.append(c_monster)
