@@ -3,11 +3,17 @@ extends Control
 @onready var camera=$"../Camera2D"
 @onready var monsterlayer=$"../MonsterLayer"
 @onready var map=$"../Map"
-
+@onready var control=camera.get_node("Control")
 var buttons:Array[Button]
 var scene=preload("res://tile_button.tscn")
+var using_max=8
+var using_pets_id:Array[int]
+var pets_used:Array[bool]
 func _ready() -> void:
-	var control=camera.get_node("Control")
+	for i in range(using_max):
+		using_pets_id.append(-1)
+		pets_used.append(false)
+	using_pets_id[0]=0	
 	control.game_control=self
 	control.bconnect()
 
@@ -36,11 +42,23 @@ func place_tile_buttons()->void:
 			buttons[k].pressed.connect(drop.bind(pos))
 			
 func drop(pos):
-	if isDroppable(pos, false):
-		monsterlayer.addPet(0, pos)
+	var s=control.selecting
+	if isDroppable(pos, false) && pets_used[s]==false && using_pets_id[s]!=-1:
+		monsterlayer.addPet(using_pets_id[s], pos)
+	pets_used[s]=true
 	remove_tile_buttons()
 
 func remove_tile_buttons()->void:
 	for b in buttons:
 		b.queue_free()
 	buttons.resize(0)
+
+func remove_pets() -> void:
+	var regain_pets=monsterlayer.removeAllPets()
+	for i in using_max:
+		for j in regain_pets:
+			if using_pets_id[i]==j :
+				pets_used[i]=false
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("z"):
+		remove_pets()

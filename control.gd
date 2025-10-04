@@ -20,9 +20,8 @@ func bconnect()->void:
 	_ready()
 	for i in range(max_using):
 		buttons[i].button_down.connect(Callable(game_control,"place_tile_buttons"))
-	
 func _process(delta: float) -> void:
-	selecting=0
+	#selecting=0
 	for i in range(max_using):
 		if buttons[i].button_pressed:
 			selecting=i

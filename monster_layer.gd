@@ -33,6 +33,7 @@ func removeAllPets() -> Array:
 		arr.append(pet.id)
 		monsterDict.erase(pos)
 		remove_child(pet)
+		pet.queue_free()
 	petList = []
 	return arr
 
