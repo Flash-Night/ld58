@@ -2,8 +2,10 @@ extends Node2D
 
 var animation:AnimatedSprite2D
 var map:TileMapLayer
+var monsterLayer:Node2D
+
 var pos:Vector2i
-var speed = 4
+var speed = 8
 
 var state:int
 
@@ -11,6 +13,8 @@ var state:int
 func _ready() -> void:
 	#animation = get_node("Animation")
 	map = get_parent().get_node("Map")
+	monsterLayer = get_parent().get_node("MonsterLayer")
+	
 	pos = Vector2i(0,0)
 	state = 0
 	self.position.x = 32
@@ -30,6 +34,14 @@ func  _process(_delta: float) -> void:
 		moving()
 			
 
+func isMovable(targetpos:Vector2i) -> bool:
+	if map.get_cell_source_id(targetpos) != 0:
+		return false
+	if monsterLayer.monsterDict.has(targetpos):
+		return false
+	return true
+
+
 func move(direction:String) -> void:
 	var targetpos = Vector2i(pos.x,pos.y)
 	#animation.play(direction)
@@ -41,10 +53,10 @@ func move(direction:String) -> void:
 		targetpos.y -= 1
 	elif direction == "front":
 		targetpos.y += 1
-	var cellID = map.get_cell_source_id(targetpos)
-	if cellID == 0:
+	if isMovable(targetpos):
 		pos = targetpos
 		state = 1
+		moving()
 
 func moving() -> void:
 	var _posx = pos.x * 64 + 32
