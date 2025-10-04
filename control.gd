@@ -4,10 +4,11 @@ extends Control
 var selecting:int
 var buttons:Array[Button]
 var max_using = 8
+var scene :PackedScene
 func _ready() -> void:
-	pass
-func bconnect()->void:
-	var scene=preload("res://monster_using.tscn")
+	if scene!= null:
+		return
+	scene=preload("res://monster_using.tscn")
 	buttons.resize(max_using)
 	for i in range(max_using):
 		buttons[i] = scene.instantiate()
@@ -15,6 +16,8 @@ func bconnect()->void:
 		buttons[i].position.x=-600+i*100
 		buttons[i].position.y=250
 		buttons[i].z_index=20
+func bconnect()->void:
+	_ready()
 	for i in range(max_using):
 		buttons[i].button_down.connect(Callable(game_control,"place_tile_buttons"))
 	
