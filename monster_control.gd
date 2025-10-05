@@ -52,6 +52,7 @@ func drop(pos):
 	if isDroppable(pos, false) && pets_used[selection]==false && using_pets_id[selection]!=-1:
 		monsterlayer.addPet(using_pets_id[selection], pos)
 		pets_used[selection]=true
+		control.buttons[selection].disable()
 	selection = -1
 	remove_tile_buttons()
 
@@ -62,10 +63,11 @@ func remove_tile_buttons()->void:
 
 func remove_pets() -> void:
 	var regain_pets=monsterlayer.removeAllPets()
-	for i in using_max*page_max:
+	for i in using_max:
 		for j in regain_pets:
 			if using_pets_id[i]==j :
 				pets_used[i]=false
+				control.buttons[i].enable()
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("z"):
 		remove_pets()

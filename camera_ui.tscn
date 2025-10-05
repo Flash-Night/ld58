@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://5rp7htiqtlyd"]
+[gd_scene load_steps=3 format=3 uid="uid://5rp7htiqtlyd"]
 
 [ext_resource type="Script" uid="uid://bb7dygvxnsmso" path="res://camera_2d.gd" id="1_js8ic"]
 [ext_resource type="Script" uid="uid://l4vnlsubjoxy" path="res://control.gd" id="2_v183y"]
-[ext_resource type="PackedScene" uid="uid://b68ot8ul6xsqx" path="res://card_button.tscn" id="3_v183y"]
 
 [node name="Camera2D" type="Camera2D"]
 z_index = 2
@@ -16,6 +15,7 @@ offset_bottom = 40.0
 script = ExtResource("2_v183y")
 
 [node name="Button" type="Button" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = -561.0
 offset_top = 171.0
@@ -24,65 +24,10 @@ offset_bottom = 202.0
 text = "<"
 
 [node name="Button2" type="Button" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = -537.0
 offset_top = 171.0
 offset_right = -519.0
 offset_bottom = 202.0
 text = ">"
-
-[node name="Card0" parent="Control" instance=ExtResource("3_v183y")]
-layout_mode = 1
-offset_left = -610.0
-offset_top = 220.0
-offset_right = -610.0
-offset_bottom = 220.0
-
-[node name="Card1" parent="Control" instance=ExtResource("3_v183y")]
-layout_mode = 1
-offset_left = -455.0
-offset_top = 220.0
-offset_right = -455.0
-offset_bottom = 220.0
-
-[node name="Card2" parent="Control" instance=ExtResource("3_v183y")]
-layout_mode = 1
-offset_left = -300.0
-offset_top = 220.0
-offset_right = -300.0
-offset_bottom = 220.0
-
-[node name="Card3" parent="Control" instance=ExtResource("3_v183y")]
-layout_mode = 1
-offset_left = -145.0
-offset_top = 220.0
-offset_right = -145.0
-offset_bottom = 220.0
-
-[node name="Card4" parent="Control" instance=ExtResource("3_v183y")]
-layout_mode = 1
-offset_left = 10.0
-offset_top = 220.0
-offset_right = 10.0
-offset_bottom = 220.0
-
-[node name="Card5" parent="Control" instance=ExtResource("3_v183y")]
-layout_mode = 1
-offset_left = 165.0
-offset_top = 220.0
-offset_right = 165.0
-offset_bottom = 220.0
-
-[node name="Card6" parent="Control" instance=ExtResource("3_v183y")]
-layout_mode = 1
-offset_left = 320.0
-offset_top = 220.0
-offset_right = 320.0
-offset_bottom = 220.0
-
-[node name="Card7" parent="Control" instance=ExtResource("3_v183y")]
-layout_mode = 1
-offset_left = 475.0
-offset_top = 220.0
-offset_right = 475.0
-offset_bottom = 220.0

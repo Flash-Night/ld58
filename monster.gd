@@ -33,56 +33,66 @@ static var pos9 = [
 
 static var monsterData:Dictionary = {
 	0:{
+		"name": "逆时雨",
 		"power": 4,
 		"type": 1,
 		"description": "Water"
 	},
 	1:{
+		"name": "弥烖兵",
 		"power": 4,
 		"type": 2,
 		"description": "Fire"
 	},
 	2:{
+		"name": "宁风旱",
 		"power": 4,
 		"type": 3,
 		"description": "Nature"
 	},
 	3:{
+		"name": "祈福祥",
 		"power": 3,
 		"type": 0,
 		"description": "None"
 	},
 	4:{
+		"name": "4",
 		"power": 1,
 		"type": 1,
 		"ability": 1,
 		"description": "Water, all adjacent units power+1"
 	},
 	5:{
+		"name": "5",
 		"power": 3,
 		"type": 3,
 		"ability": 2,
 		"description": "Nature, power+1 when next to water unit"
 	},
 	6:{
+		"name": "6",
 		"power": 3,
 		"type": 2,
 		"ability": 3,
 		"description": "Fire, all adjacent nature units power-1"
 	},
 	7:{
+		"name": "7",
 		"power": 4,
 		"type": 3,
 		"ability": 4,
 		"description": "Nature, power+1 for every adjacent water units "
 	},
 	8:{
+		"name": "8",
 		"power": 3,
 		"type": 1,
 		"ability": 5,
 		"description": "Water, Power*2 if adjacent water and nature nad fire units "
 	},
 	9:{
+		"name": "9",
 		"power": 3,
 		"type": 1,
 		"ability": 6,

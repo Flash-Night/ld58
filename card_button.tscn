@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b68ot8ul6xsqx"]
+[gd_scene load_steps=9 format=3 uid="uid://b68ot8ul6xsqx"]
 
 [ext_resource type="Texture2D" uid="uid://do83gjipblmwi" path="res://images/cards/1.png" id="1_1yldv"]
 [ext_resource type="Script" uid="uid://yp1a3stnictg" path="res://card_button.gd" id="2_1hdfj"]
+[ext_resource type="Texture2D" uid="uid://cprxcv2fxyej5" path="res://images/cards/card_disabled.png" id="3_updi8"]
 
 [sub_resource type="Animation" id="Animation_1hdfj"]
 length = 0.001
@@ -113,8 +114,38 @@ offset_right = 604.0
 offset_bottom = 1024.0
 scale = Vector2(0.24, 0.24)
 texture_normal = ExtResource("1_1yldv")
+texture_disabled = ExtResource("3_updi8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureButton"]
 libraries = {
 &"": SubResource("AnimationLibrary_updi8")
 }
+
+[node name="PowerText" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 108.33334
+offset_top = 33.33333
+offset_right = 487.50003
+offset_bottom = 132.33334
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "1"
+horizontal_alignment = 1
+
+[node name="NameText" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 116.66668
+offset_top = 887.49994
+offset_right = 495.8333
+offset_bottom = 986.49994
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "Name"
+horizontal_alignment = 1
+
+[node name="TypeRect" type="ColorRect" parent="TextureButton"]
+layout_mode = 0
+offset_left = 516.6667
+offset_top = 29.166668
+offset_right = 579.1666
+offset_bottom = 91.66663

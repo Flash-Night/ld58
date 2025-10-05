@@ -6,14 +6,14 @@ extends Control
 @onready var page_button_r=$Button2
 var selecting:int
 var buttons:Array[Control]
-var max_using = 8
+var max_using = 10 # 8
 var max_page = 2
 var now_page:int
 var scene :PackedScene
 func _ready() -> void:
 	if scene != null:
 		return
-	scene = preload("res://monster_using.tscn")
+	scene = preload("res://card_button.tscn")
 	#for j in range(max_page):
 		#for i in range(max_using):
 			#buttons.append(scene.instantiate()) 
@@ -24,8 +24,11 @@ func _ready() -> void:
 			#buttons[k].z_index=20
 			#buttons[k].hide()
 	for i in range(max_using):
-		var btn = get_node("Card" + str(i))
+		var btn = scene.instantiate()
 		buttons.append(btn) 
+		self.add_child(btn)
+		btn.position.x = -625 + i * 140
+		btn.position.y = 220
 		#buttons[i].hide()
 		if btn.init(game_control, i):
 			var section:float = 1 - i * 0.1

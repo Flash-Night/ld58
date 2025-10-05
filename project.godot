@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ld58"
-run/main_scene="uid://dt4nq0nkmjiit"
+run/main_scene="uid://cppyyv1etyp1c"
 config/features=PackedStringArray("4.5", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"
