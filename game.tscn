@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://cppyyv1etyp1c"]
+[gd_scene load_steps=8 format=4 uid="uid://cppyyv1etyp1c"]
 
 [ext_resource type="TileSet" uid="uid://ct4qtskumin4" path="res://map/maptile.tres" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://crn883haovaie" path="res://player.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://chbw2jku1340n" path="res://tooltip.gd" id="2_eow3j"]
 [ext_resource type="Script" uid="uid://4mgk2t02rju7" path="res://monster_layer.gd" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://canlrp32scija" path="res://monster.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://5rp7htiqtlyd" path="res://camera_ui.tscn" id="3_feb5d"]
@@ -15,6 +16,16 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_ryrav")
+
+[node name="Tooltip" type="PanelContainer" parent="Control"]
+z_index = 99
+layout_mode = 0
+offset_right = 185.0
+offset_bottom = 83.0
+script = ExtResource("2_eow3j")
+
+[node name="Content" type="RichTextLabel" parent="Control/Tooltip"]
+layout_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("1_e2o6t")]
 z_index = 1

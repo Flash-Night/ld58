@@ -85,6 +85,10 @@ func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 		redflag.hide()
 	powerLabel.text = str(power)
 	
+	var rollover = $Rollover
+	rollover.mouse_entered.connect(showInfo)
+	rollover.mouse_exited.connect(hideInfo)
+	
 	if _pos.x < 0:
 		pos = Vector2i(int(self.position.x / 64),int(self.position.y / 64))
 	else:
@@ -92,6 +96,15 @@ func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 	self.position.x = pos.x * 64 + 32
 	self.position.y = pos.y * 64 + 32
 	return pos
+	
+func showInfo():
+	var tooltip = $"../../Control/Tooltip"
+	tooltip.show()
+	tooltip.showInfo(Vector2(self.position),str(id))
+
+func hideInfo():
+	var tooltip = $"../../Control/Tooltip"
+	tooltip.hide()
 
 func refresh(_monsterDict:Dictionary):
 	var monsterDict = _monsterDict
