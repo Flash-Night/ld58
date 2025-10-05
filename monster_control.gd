@@ -61,6 +61,6 @@ func remove_pets() -> void:
 		for j in regain_pets:
 			if using_pets_id[i]==j :
 				pets_used[i]=false
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("z"):
 		remove_pets()

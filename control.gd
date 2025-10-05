@@ -26,7 +26,7 @@ func show_button_monster (x:int,id:int)->void:
 	var monster=buttons[x].get_node("Monster")
 	monster.init_show_only(id)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#selecting=0
 	for i in range(max_using):
 		if buttons[i].button_pressed:
