@@ -25,10 +25,11 @@ script = ExtResource("2_fc0e3")
 
 [node name="Monster" parent="MonsterLayer" instance=ExtResource("3_7jktm")]
 position = Vector2(351, 416)
+id = 4
 
 [node name="Monster2" parent="MonsterLayer" instance=ExtResource("3_7jktm")]
 position = Vector2(541, 417)
-id = 1
+id = 5
 
 [node name="Map" type="TileMapLayer" parent="."]
 z_index = -2

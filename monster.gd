@@ -5,24 +5,28 @@ class_name Monster
 
 static var monsterData:Dictionary = {
 	0:{
-		"power": 3,
-		"type": 0
+		"power": 4,
+		"type": 1
 	},
 	1:{
-		"power": 2,
-		"type": 1
+		"power": 4,
+		"type": 2
 	},
 	2:{
 		"power": 4,
-		"type": 0
+		"type": 3
 	},
 	3:{
-		"power": 5,
+		"power": 3,
 		"type": 0
 	},
 	4:{
-		"power": 6,
-		"type": 0
+		"power": 2,
+		"type": 1
+	},
+	5:{
+		"power": 3,
+		"type": 2
 	}
 }
 
