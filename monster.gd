@@ -57,7 +57,9 @@ func init_show_only(_id:int):
 	data = monsterData[id]
 	power = data["power"]
 	type = data["type"]
-	#var lbtext = str(id) + ": " + str(data["power"])
+	
+	var rollover = $Rollover
+	rollover.hide()
 	
 	greenflag.hide()
 	redflag.hide()
