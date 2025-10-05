@@ -34,28 +34,41 @@ static var pos9 = [
 static var monsterData:Dictionary = {
 	0:{
 		"power": 4,
-		"type": 1
+		"type": 1,
+		"description": "Water"
 	},
 	1:{
 		"power": 4,
-		"type": 2
+		"type": 2,
+		"description": "Fire"
 	},
 	2:{
 		"power": 4,
-		"type": 3
+		"type": 3,
+		"description": "Nature"
 	},
 	3:{
 		"power": 3,
-		"type": 0
+		"type": 0,
+		"description": "None"
 	},
 	4:{
 		"power": 1,
 		"type": 1,
-		"ability": 1
+		"ability": 1,
+		"description": "Water, all adjacent units power+1"
 	},
 	5:{
 		"power": 3,
-		"type": 2
+		"type": 3,
+		"ability": 2,
+		"description": "Nature, power+1 when next to water unit"
+	},
+	6:{
+		"power": 3,
+		"type": 2,
+		"ability": 3,
+		"description": "Fire, all adjacent nature units power-1"
 	}
 }
 
@@ -78,13 +91,14 @@ var layer:Node2D
 @onready var redflag:Sprite2D = get_node("RedFlag")
 @onready var greenflag:Sprite2D = get_node("GreenFlag")
 @onready var powerLabel:Label = get_node("PowerLabel")
+@onready var typeRect:ColorRect = get_node("TypeRect")
 
 func _ready():
 	pass
 	#layer =get_parent() 
 
 func init_show_only(_id:int):
-	print(_id)
+	#print(_id)
 	_ready()
 	self.show()
 	if _id > -1 :
@@ -92,6 +106,15 @@ func init_show_only(_id:int):
 	data = monsterData[id]
 	power = data["power"]
 	type = data["type"]
+	if type == 1:
+		typeRect.color = Color(0,0.5,1,1)
+	elif type == 2:
+		typeRect.color = Color(1,0.25,0,1)
+	elif type == 3:
+		typeRect.color = Color(0,1,0.5,1)
+	else:
+		typeRect.color = Color(1,1,1,1)
+	
 	if data.has("ability"):
 		ability = data["ability"]
 	else:
@@ -123,6 +146,15 @@ func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i(-1,-1))
 	power=basepower
 	
 	type = data["type"]
+	if type == 1:
+		typeRect.color = Color(0,0.5,1,1)
+	elif type == 2:
+		typeRect.color = Color(1,0.25,0,1)
+	elif type == 3:
+		typeRect.color = Color(0,1,0.5,1)
+	else:
+		typeRect.color = Color(1,1,1,1)
+	
 	if data.has("ability"):
 		ability = data["ability"]
 	else:
@@ -148,59 +180,71 @@ func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i(-1,-1))
 	self.position.x = pos.x * 64 + 32
 	self.position.y = pos.y * 64 + 32
 	
-	self.refresh()
+	#self.refresh()
 	return pos
 	
 func showInfo():
 	var tooltip = $"../../Control/Tooltip"
 	tooltip.show()
-	tooltip.showInfo(Vector2(self.position),str(id))
+	tooltip.showInfo(Vector2(self.position),data["description"])
 
 func hideInfo():
 	var tooltip = $"../../Control/Tooltip"
 	tooltip.hide()
 
-func refresh():
-	for rpos in pos9:
-		var targetpos = self.pos + rpos
-		if monsterDict.has(targetpos):
-			var target_monster = monsterDict[targetpos]
-			if target_monster.ability > 0:
-				target_monster.checkAbility()
-	for dx in range(-2,3):
-		for dy in range(-2,3):
-			var targetpos = pos + Vector2i(dx,dy)
-			if monsterDict.has(targetpos):
-				var target_monster = monsterDict[targetpos]
-				target_monster.processAbilities()
-
-
-func checkAbility():
-	if self.ability == 1:
-		self.enableAbility = true
+#func refresh():
+	#for rpos in pos9:
+		#var targetpos = self.pos + rpos
+		#if monsterDict.has(targetpos):
+			#var target_monster = monsterDict[targetpos]
+			#if target_monster.ability > 0:
+				#target_monster.checkAbility()
+	#for dx in range(-2,3):
+		#for dy in range(-2,3):
+			#var targetpos = pos + Vector2i(dx,dy)
+			#if monsterDict.has(targetpos):
+				#var target_monster = monsterDict[targetpos]
+				#target_monster.processAbilities()
+#
+#
+#func checkAbility():
+	#if self.ability == 1:
+		#self.enableAbility = true
 		
-func processAbilities():
-	powerAdder = 0
-	powerMultiplier = 1
-	for rpos in pos8:
-		if monsterDict.has(pos + rpos):
-			var targetmonster = monsterDict[pos + rpos]
-			if targetmonster.enableAbility:
-				processAbility(targetmonster.ability)
-				
+#func processAbilities():
+	#powerAdder = 0
+	#powerMultiplier = 1
+	#for rpos in pos8:
+		#if monsterDict.has(pos + rpos):
+			#var targetmonster = monsterDict[pos + rpos]
+			#if targetmonster.enableAbility:
+				#processAbility(targetmonster.ability)
+				#
 		#for rpos in pos4:
 			#var targetpos = pos + rpos
-@warning_ignore("unused_parameter")
-func processAbility(targetAbility:int):
-	pass
+#
+#func processAbility(targetAbility:int):
+	#pass
 
 func update_ability(x:int)->void:
-	print(x)
+	#print(x)
 	if self.ability == 1:
 		for rpos in pos4:
 			if monsterDict.has(pos + rpos):
 				var targetmonster = monsterDict[pos + rpos]
 				targetmonster.powerAdder+=1*x
+	elif self.ability == 2:
+		for rpos in pos4:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 1:
+					self.powerAdder += 1*x
+	elif self.ability == 3:
+		for rpos in pos4:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 3:
+					targetmonster.powerAdder -= 1*x
 		
 func update_power()->void:
 	power=basepower*powerMultiplier+powerAdder
