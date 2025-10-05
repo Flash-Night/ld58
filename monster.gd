@@ -3,6 +3,23 @@ class_name Monster
 
 @export var id:int
 
+static var pos4 = [
+	Vector2i(-1, 0),
+	Vector2i(1, 0),
+	Vector2i(0, -1),
+	Vector2i(0, 1)
+]
+static var pos8 = [
+	Vector2i(-1, -1),
+	Vector2i(-1, 0),
+	Vector2i(-1, 1),
+	Vector2i(0, -1),
+	Vector2i(0, 1),
+	Vector2i(1, -1),
+	Vector2i(1, 0),
+	Vector2i(1, 1)
+]
+
 static var monsterData:Dictionary = {
 	0:{
 		"power": 4,
@@ -21,8 +38,9 @@ static var monsterData:Dictionary = {
 		"type": 0
 	},
 	4:{
-		"power": 2,
-		"type": 1
+		"power": 1,
+		"type": 1,
+		"ability": 1
 	},
 	5:{
 		"power": 3,
@@ -36,6 +54,7 @@ var isEnemy:bool
 
 var power:int
 var type:int
+var ability:int
 
 
 var layer:Node2D
@@ -57,6 +76,10 @@ func init_show_only(_id:int):
 	data = monsterData[id]
 	power = data["power"]
 	type = data["type"]
+	if data.has("ability"):
+		ability = data["ability"]
+	else:
+		ability = 0
 	
 	var rollover = $Rollover
 	rollover.hide()
@@ -77,7 +100,10 @@ func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 	data = monsterData[id]
 	power = data["power"]
 	type = data["type"]
-	#var lbtext = str(id) + ": " + str(data["power"])
+	if data.has("ability"):
+		ability = data["ability"]
+	else:
+		ability = 0
 	
 	if isEnemy:
 		redflag.show()
@@ -120,12 +146,18 @@ func refresh(_monsterDict:Dictionary):
 		Vector2i(pos.x + 1, pos.y),
 		Vector2i(pos.x + 1, pos.y + 1)
 	]
+	var powerMultiplier = Vector2i(0,1)
 	for targetpos in posArr:
 		if monsterDict.has(targetpos):
 			var target_monster = monsterDict[targetpos]
-			if target_monster.type > 0:
+			if target_monster.ability > 0:
 				pass
 				#target_monster
+	power = data["power"]
+
+func processAbility(target_monster):
+	if target_monster.ability == 1:
+		pass
 
 func capture(_monsterDict:Dictionary) -> bool:
 	if !isEnemy:
