@@ -42,7 +42,7 @@ func switch_page(x:int)->void:
 
 func bconnect()->void:
 	_ready()
-	for i in range(max_using):
+	for i in range(max_using*max_page):
 		buttons[i].button_down.connect(Callable(game_control,"place_tile_buttons"))
 		
 func show_button_monster (x:int,id:int)->void:
@@ -52,6 +52,6 @@ func show_button_monster (x:int,id:int)->void:
 	
 func _process(_delta: float) -> void:
 	#selecting=0
-	for i in range(max_using):
+	for i in range(max_using*max_page):
 		if buttons[i].button_pressed:
 			selecting=i
