@@ -6,6 +6,8 @@ var monsterDict:Dictionary
 
 var monsterScene:PackedScene
 
+@onready var monsterControl = $"../Control"
+
 func _ready() -> void:
 	monsterScene = load("res://monster.tscn")
 	monsterDict = {}
@@ -45,6 +47,9 @@ func refresh(center:Vector2i) -> void:
 				var c_monster = monsterDict[pos]
 				c_monster.refresh(monsterDict)
 				if c_monster.isEnemy:
+					var id = c_monster.id
 					var result = c_monster.capture(monsterDict)
 					if result:
-						petList.append(c_monster)
+						monsterControl.using_pets_id[id] = id
+						monsterControl.pets_used[id] = false
+						monsterControl.control.show_button_monster(id,id)

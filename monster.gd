@@ -109,7 +109,8 @@ func refresh(_monsterDict:Dictionary):
 		if monsterDict.has(targetpos):
 			var target_monster = monsterDict[targetpos]
 			if target_monster.type > 0:
-				target_monster
+				pass
+				#target_monster
 
 func capture(_monsterDict:Dictionary) -> bool:
 	if !isEnemy:
@@ -130,7 +131,10 @@ func capture(_monsterDict:Dictionary) -> bool:
 		if pet.power <= self.power:
 			return false
 	
-	isEnemy = false
-	greenflag.show()
-	redflag.hide()
+	#isEnemy = false
+	#greenflag.show()
+	#redflag.hide()
+	_monsterDict.erase(self)
+	get_parent().remove_child(self)
+	self.queue_free()
 	return true
