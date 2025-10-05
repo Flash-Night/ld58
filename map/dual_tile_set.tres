@@ -1,0 +1,27 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://5so0g5h3i0n8"]
+
+[ext_resource type="Texture2D" uid="uid://boltm1gbyup38" path="res://images/grass1.png" id="1_pjc3k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjrd1"]
+texture = ExtResource("1_pjc3k")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_xjrd1")
