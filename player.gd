@@ -1,6 +1,6 @@
 extends Node2D
 
-var animation:AnimatedSprite2D
+@onready var animation:AnimatedSprite2D = $Animation
 var map:TileMapLayer
 var monsterLayer:Node2D
 
@@ -11,7 +11,6 @@ var state:int
 
 
 func _ready() -> void:
-	#animation = get_node("Animation")
 	map = get_parent().get_node("Map")
 	monsterLayer = get_parent().get_node("MonsterLayer")
 	
@@ -44,7 +43,7 @@ func isMovable(targetpos:Vector2i) -> bool:
 
 func move(direction:String) -> void:
 	var targetpos = Vector2i(pos.x,pos.y)
-	#animation.play(direction)
+	animation.play(direction)
 	if direction == "left":
 		targetpos.x -= 1
 	elif direction == "right":

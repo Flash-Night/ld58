@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://crn883haovaie"]
 
-[ext_resource type="Texture2D" uid="uid://viesm4vowo66" path="res://images/default_wall.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bfry8hq78uenv" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="SpriteFrames" uid="uid://n5621v614ib5" path="res://animations/player.tres" id="3_i3pqv"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4flbx")
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(0.2, 0.2)
+sprite_frames = ExtResource("3_i3pqv")
+animation = &"front"

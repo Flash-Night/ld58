@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://n5621v614ib5"]
+
+[ext_resource type="Texture2D" uid="uid://oogxj6gs1wsd" path="res://images/主角/背面.png" id="1_vfr2u"]
+[ext_resource type="Texture2D" uid="uid://diqqkm4td05qr" path="res://images/主角/正面.png" id="2_weyxy"]
+[ext_resource type="Texture2D" uid="uid://bqff3v8oxvudx" path="res://images/主角/左面.png" id="3_v1el1"]
+[ext_resource type="Texture2D" uid="uid://cjvgf5vp45l0f" path="res://images/主角/右面.png" id="4_0uk38"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vfr2u")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_weyxy")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v1el1")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0uk38")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]

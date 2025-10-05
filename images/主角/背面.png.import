@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfh66moglg3pn"
-path="res://.godot/imported/default_ground.png-9d6dc870ead3ec268fdcb3a3d2a95587.ctex"
+uid="uid://oogxj6gs1wsd"
+path="res://.godot/imported/背面.png-12eea26c95e5d133c6a1b8dcbb730885.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/default_ground.png"
-dest_files=["res://.godot/imported/default_ground.png-9d6dc870ead3ec268fdcb3a3d2a95587.ctex"]
+source_file="res://images/主角/背面.png"
+dest_files=["res://.godot/imported/背面.png-12eea26c95e5d133c6a1b8dcbb730885.ctex"]
 
 [params]
 
