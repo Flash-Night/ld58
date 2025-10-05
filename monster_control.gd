@@ -7,10 +7,12 @@ extends Control
 var buttons:Array[Button]
 var scene=preload("res://tile_button.tscn")
 var using_max=8
+var page_max=2
+var now_page=0
 var using_pets_id:Array[int]
 var pets_used:Array[bool]
 func _ready() -> void:
-	for i in range(using_max):
+	for i in range(using_max*page_max):
 		using_pets_id.append(-1)
 		pets_used.append(false)
 	for i in range(0,4):
@@ -45,6 +47,7 @@ func place_tile_buttons()->void:
 			
 func drop(pos):
 	var s=control.selecting
+	print(s)
 	if isDroppable(pos, false) && pets_used[s]==false && using_pets_id[s]!=-1:
 		monsterlayer.addPet(using_pets_id[s], pos)
 		pets_used[s]=true
@@ -57,7 +60,7 @@ func remove_tile_buttons()->void:
 
 func remove_pets() -> void:
 	var regain_pets=monsterlayer.removeAllPets()
-	for i in using_max:
+	for i in using_max*page_max:
 		for j in regain_pets:
 			if using_pets_id[i]==j :
 				pets_used[i]=false

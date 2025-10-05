@@ -75,6 +75,18 @@ static var monsterData:Dictionary = {
 		"type": 3,
 		"ability": 4,
 		"description": "Nature, power+1 for every adjacent water units "
+	},
+	8:{
+		"power": 3,
+		"type": 1,
+		"ability": 5,
+		"description": "Water, Power*2 if adjacent water and nature nad fire units "
+	},
+	9:{
+		"power": 3,
+		"type": 1,
+		"ability": 6,
+		"description": "Water, Power+1 for surrounding water units "
 	}
 }
 
@@ -259,6 +271,22 @@ func update_ability(x:int)->void:
 				var targetmonster = monsterDict[pos + rpos]
 				if targetmonster.type == 1:
 					self.powerAdder += 1*x
+	elif self.ability == 5:
+		var has:Array[bool]
+		for i in range(4):
+			has.append(false)
+		for rpos in pos4:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				has[targetmonster.type]= true
+		if has[1] && has[2] && has[3] :
+			self.powerMultiplier+= 1*x
+	elif self.ability == 6:
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 1:
+					targetmonster.powerAdder += 1*x
 		
 func update_power()->void:
 	power=basepower*powerMultiplier+powerAdder
