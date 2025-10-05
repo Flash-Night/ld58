@@ -14,7 +14,7 @@ func _ready() -> void:
 	petList = []
 	var monsterList = get_children(false)
 	for _child in monsterList:
-		var pos = _child.init(true, -1)
+		var pos = _child.init(true, -1, monsterDict)
 		monsterDict[pos] = _child
 
 func addPet(id:int, pos:Vector2i) -> bool:
@@ -22,10 +22,10 @@ func addPet(id:int, pos:Vector2i) -> bool:
 		return false
 	var pet = monsterScene.instantiate()
 	self.add_child(pet)
-	pet.init(false, id, pos)
 	petList.append(pet)
 	monsterDict[pos] = pet
-	refresh(pos)
+	pet.init(false, id, monsterDict, pos)
+	#pet.refresh()
 	return true
 
 func removeAllPets() -> Array:

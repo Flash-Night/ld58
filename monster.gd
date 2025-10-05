@@ -19,6 +19,17 @@ static var pos8 = [
 	Vector2i(1, 0),
 	Vector2i(1, 1)
 ]
+static var pos9 = [
+	Vector2i(-1, -1),
+	Vector2i(-1, 0),
+	Vector2i(-1, 1),
+	Vector2i(0, -1),
+	Vector2i(0, 0),
+	Vector2i(0, 1),
+	Vector2i(1, -1),
+	Vector2i(1, 0),
+	Vector2i(1, 1)
+]
 
 static var monsterData:Dictionary = {
 	0:{
@@ -55,7 +66,11 @@ var isEnemy:bool
 var power:int
 var type:int
 var ability:int
+var enableAbility:bool = false
+var powerAdder:int
+var powerMultiplier:int
 
+var monsterDict
 
 var layer:Node2D
 
@@ -80,6 +95,7 @@ func init_show_only(_id:int):
 		ability = data["ability"]
 	else:
 		ability = 0
+	enableAbility = false
 	
 	var rollover = $Rollover
 	rollover.hide()
@@ -91,12 +107,13 @@ func init_show_only(_id:int):
 	powerLabel.text = str(power)
 	
 
-func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
+func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 	#print(_isEnemy,_id)
 	self.show()
 	isEnemy = _isEnemy
 	if _id > -1 :
 		id = _id
+	monsterDict = _monsterDict
 	data = monsterData[id]
 	power = data["power"]
 	type = data["type"]
@@ -104,6 +121,7 @@ func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 		ability = data["ability"]
 	else:
 		ability = 0
+	enableAbility = false
 	
 	if isEnemy:
 		redflag.show()
@@ -123,6 +141,8 @@ func init(_isEnemy:bool, _id:int, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
 		pos = _pos
 	self.position.x = pos.x * 64 + 32
 	self.position.y = pos.y * 64 + 32
+	
+	self.refresh()
 	return pos
 	
 func showInfo():
@@ -134,30 +154,39 @@ func hideInfo():
 	var tooltip = $"../../Control/Tooltip"
 	tooltip.hide()
 
-func refresh(_monsterDict:Dictionary):
-	var monsterDict = _monsterDict
-	var posArr = [
-		Vector2i(pos.x - 1, pos.y - 1),
-		Vector2i(pos.x - 1, pos.y),
-		Vector2i(pos.x - 1, pos.y + 1),
-		Vector2i(pos.x, pos.y - 1),
-		Vector2i(pos.x, pos.y + 1),
-		Vector2i(pos.x + 1, pos.y - 1),
-		Vector2i(pos.x + 1, pos.y),
-		Vector2i(pos.x + 1, pos.y + 1)
-	]
-	var powerMultiplier = Vector2i(0,1)
-	for targetpos in posArr:
+func refresh():
+	for rpos in pos9:
+		var targetpos = self.pos + rpos
 		if monsterDict.has(targetpos):
 			var target_monster = monsterDict[targetpos]
 			if target_monster.ability > 0:
-				pass
-				#target_monster
-	power = data["power"]
+				target_monster.checkAbility()
+	for dx in range(-2,3):
+		for dy in range(-2,3):
+			var targetpos = pos + Vector2i(dx,dy)
+			if monsterDict.has(targetpos):
+				var target_monster = monsterDict[targetpos]
+				target_monster.processAbilities()
 
-func processAbility(target_monster):
-	if target_monster.ability == 1:
-		pass
+
+func checkAbility():
+	if self.ability == 1:
+		self.enableAbility = true
+		
+func processAbilities():
+	powerAdder = 0
+	powerMultiplier = 1
+	for rpos in pos8:
+		if monsterDict.has(pos + rpos):
+			var targetmonster = monsterDict[pos + rpos]
+			if targetmonster.enableAbility:
+				processAbility(targetmonster.ability)
+				
+		#for rpos in pos4:
+			#var targetpos = pos + rpos
+@warning_ignore("unused_parameter")
+func processAbility(targetAbility:int):
+	pass
 
 func capture(_monsterDict:Dictionary) -> bool:
 	if !isEnemy:
@@ -168,7 +197,6 @@ func capture(_monsterDict:Dictionary) -> bool:
 		Vector2i(pos.x, pos.y - 1),
 		Vector2i(pos.x, pos.y + 1)
 	]
-	var monsterDict = _monsterDict
 	for targetpos in posArr:
 		if !monsterDict.has(targetpos):
 			return false
