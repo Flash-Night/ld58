@@ -192,4 +192,5 @@ tile_set = SubResource("TileSet_hve3p")
 script = ExtResource("8_hve3p")
 godot_4_3_compatibility = false
 
-[node name="Camera2D" parent="." instance=ExtResource("3_feb5d")]
+[node name="Camera2D" parent="." node_paths=PackedStringArray("game_control") instance=ExtResource("3_feb5d")]
+game_control = NodePath("../Control")

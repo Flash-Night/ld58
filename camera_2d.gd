@@ -1,5 +1,6 @@
 extends Camera2D
 
+@export var game_control:Control
 var player:Node2D
 
 func _ready() -> void:

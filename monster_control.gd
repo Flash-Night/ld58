@@ -11,15 +11,17 @@ var page_max=2
 var now_page=0
 var using_pets_id:Array[int]
 var pets_used:Array[bool]
+
+var selection:int = -1
+
 func _ready() -> void:
 	for i in range(using_max*page_max):
 		using_pets_id.append(-1)
 		pets_used.append(false)
 	for i in range(0,4):
-		using_pets_id[i]=i	
-		control.show_button_monster(i,i)
+		using_pets_id[i]=i
+		#control.show_button_monster(i,i)
 	control.game_control=self
-	control.bconnect()
 
 func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 	if monsterlayer.monsterDict.has(pos):
@@ -29,7 +31,8 @@ func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 	var cellID = map.get_cell_source_id(pos)
 	return cellID == 0
 
-func place_tile_buttons()->void:
+func place_tile_buttons(id:int)->void:
+	selection = id
 	remove_tile_buttons()
 	var playerpos = player.pos
 	var x = playerpos.x*64.0
@@ -46,11 +49,10 @@ func place_tile_buttons()->void:
 			buttons[k].pressed.connect(drop.bind(pos))
 			
 func drop(pos):
-	var s=control.selecting
-	print(s)
-	if isDroppable(pos, false) && pets_used[s]==false && using_pets_id[s]!=-1:
-		monsterlayer.addPet(using_pets_id[s], pos)
-		pets_used[s]=true
+	if isDroppable(pos, false) && pets_used[selection]==false && using_pets_id[selection]!=-1:
+		monsterlayer.addPet(using_pets_id[selection], pos)
+		pets_used[selection]=true
+	selection = -1
 	remove_tile_buttons()
 
 func remove_tile_buttons()->void:
@@ -65,5 +67,5 @@ func remove_pets() -> void:
 			if using_pets_id[i]==j :
 				pets_used[i]=false
 func _process(_delta: float) -> void:
-	if Input.is_action_pressed("z"):
+	if Input.is_action_just_pressed("z"):
 		remove_pets()

@@ -1,33 +1,40 @@
 extends Control
 
-@export var game_control:Control
+@onready var game_control:Control = $"..".game_control
 
 @onready var page_button_l=$Button
 @onready var page_button_r=$Button2
 var selecting:int
-var buttons:Array[Button]
+var buttons:Array[Control]
 var max_using = 8
 var max_page = 2
 var now_page:int
 var scene :PackedScene
 func _ready() -> void:
-	if scene!= null:
+	if scene != null:
 		return
-	scene=preload("res://monster_using.tscn")
-	for j in range(max_page):
-		for i in range(max_using):
-			buttons.append(scene.instantiate()) 
-			var k=j*max_using +i
-			add_child(buttons[k])
-			buttons[k].position.x=-600+i*100
-			buttons[k].position.y=250
-			buttons[k].z_index=20
-			buttons[k].hide()
-	now_page=0
+	scene = preload("res://monster_using.tscn")
+	#for j in range(max_page):
+		#for i in range(max_using):
+			#buttons.append(scene.instantiate()) 
+			#var k=j*max_using +i
+			#add_child(buttons[k])
+			#buttons[k].position.x=-600+i*100
+			#buttons[k].position.y=250
+			#buttons[k].z_index=20
+			#buttons[k].hide()
 	for i in range(max_using):
-		buttons[i].show()
+		var btn = get_node("Card" + str(i))
+		buttons.append(btn) 
+		#buttons[i].hide()
+		if btn.init(game_control, i):
+			var section:float = 1 - i * 0.1
+			btn.initAnimation(section)
+		btn.btn.button_down.connect(bplace.bind(btn))
+	now_page=0
 	page_button_l.pressed.connect(switch_page.bind(-1))
 	page_button_r.pressed.connect(switch_page.bind(1))
+	
 func switch_page(x:int)->void:
 	var next_page=now_page+x
 	if next_page>=max_page:
@@ -40,18 +47,17 @@ func switch_page(x:int)->void:
 		buttons[next_page*max_using+i].show()
 	now_page=next_page
 
-func bconnect()->void:
-	_ready()
-	for i in range(max_using*max_page):
-		buttons[i].button_down.connect(Callable(game_control,"place_tile_buttons"))
+
+func bplace(button)->void:
+	game_control.place_tile_buttons(button.id)
 		
 func show_button_monster (x:int,id:int)->void:
-	_ready()
-	var monster=buttons[x].get_node("Monster")
-	monster.init_show_only(id)
+	buttons[x].init(game_control, id)
+	buttons[x].mouseExit()
 	
-func _process(_delta: float) -> void:
+#func _process(_delta: float) -> void:
+	#pass
 	#selecting=0
-	for i in range(max_using*max_page):
-		if buttons[i].button_pressed:
-			selecting=i
+	#for i in range(max_using*max_page):
+		#if buttons[i].button_pressed:
+			#selecting=i
