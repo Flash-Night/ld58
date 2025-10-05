@@ -14,8 +14,13 @@ func _ready() -> void:
 	petList = []
 	var monsterList = get_children(false)
 	for _child in monsterList:
-		var pos = _child.init(true, -1, monsterDict)
+		var position=_child.position
+		var pos = Vector2i(int(position.x / 64),int(position.y / 64))
+		refresh_ability(pos,-1)
+		_child.init(true, -1, monsterDict,pos)
 		monsterDict[pos] = _child
+		refresh_ability(pos,1)
+		refresh_power(pos)
 
 func addPet(id:int, pos:Vector2i) -> bool:
 	if monsterDict.has(pos):
