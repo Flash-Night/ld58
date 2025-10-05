@@ -31,17 +31,17 @@ func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 
 func place_tile_buttons()->void:
 	remove_tile_buttons()
-	var x = player.position.x
-	var y = player.position.y
 	var playerpos = player.pos
+	var x = playerpos.x*64.0
+	var y = playerpos.y*64.0
 	for i in range(7):
 		for j in range(7):
 			var pos = Vector2i(playerpos.x + i - 3,playerpos.y + j - 3)
 			buttons.append(scene.instantiate())
 			var k=i*7+j
 			add_child(buttons[k])
-			buttons[k].position.x=x-7*32+i*64
-			buttons[k].position.y=y-7*32+j*64
+			buttons[k].position.x=x-3*64+i*64
+			buttons[k].position.y=y-3*64+j*64
 			buttons[k].z_index=10
 			buttons[k].pressed.connect(drop.bind(pos))
 			
