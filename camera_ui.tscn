@@ -13,3 +13,19 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_v183y")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -576.0
+offset_top = 216.0
+offset_right = -558.0
+offset_bottom = 247.0
+text = "<"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -552.0
+offset_top = 216.0
+offset_right = -534.0
+offset_bottom = 247.0
+text = ">"
