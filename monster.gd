@@ -67,6 +67,7 @@ var power:int
 var type:int
 var ability:int
 var enableAbility:bool = false
+var basepower:int
 var powerAdder:int
 var powerMultiplier:int
 
@@ -115,7 +116,12 @@ func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i(-1,-1))
 		id = _id
 	monsterDict = _monsterDict
 	data = monsterData[id]
-	power = data["power"]
+	
+	powerAdder = 0
+	powerMultiplier = 1
+	basepower = data["power"]
+	power=basepower
+	
 	type = data["type"]
 	if data.has("ability"):
 		ability = data["ability"]
@@ -188,7 +194,18 @@ func processAbilities():
 func processAbility(targetAbility:int):
 	pass
 
-func capture(_monsterDict:Dictionary) -> bool:
+func update_ability(x:int)->void:
+	print(x)
+	if self.ability == 1:
+		for rpos in pos4:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				targetmonster.powerAdder+=1*x
+		
+func update_power()->void:
+	power=basepower*powerMultiplier+powerAdder
+	powerLabel.text = str(power)
+func capture() -> bool:
 	if !isEnemy:
 		return false
 	var posArr = [
@@ -209,7 +226,4 @@ func capture(_monsterDict:Dictionary) -> bool:
 	#isEnemy = false
 	#greenflag.show()
 	#redflag.hide()
-	_monsterDict.erase(self)
-	get_parent().remove_child(self)
-	self.queue_free()
 	return true
