@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://cppyyv1etyp1c"]
+[gd_scene load_steps=37 format=4 uid="uid://cppyyv1etyp1c"]
 
 [ext_resource type="PackedScene" uid="uid://crn883haovaie" path="res://player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://7soiu1mw6amc" path="res://game.gd" id="1_hve3p"]
@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://canlrp32scija" path="res://monster.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://5rp7htiqtlyd" path="res://camera_ui.tscn" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://bee4p3tyykrwn" path="res://images/labels/selectlabel.png" id="4_hve3p"]
-[ext_resource type="Script" uid="uid://kuys0ohyardf" path="res://selectlabel.gd" id="5_mfdv2"]
+[ext_resource type="Script" path="res://selectlabel.gd" id="5_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://boltm1gbyup38" path="res://images/grass1.png" id="6_eow3j"]
 [ext_resource type="Script" uid="uid://b8lumeqhn4xss" path="res://monster_control.gd" id="6_ryrav"]
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="6_vef74"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/TileMapDual.gd" id="8_hve3p"]
 [ext_resource type="Texture2D" uid="uid://d35fgfp2dopfd" path="res://images/frontmap/Big stone (1).PNG" id="11_iotsf"]
-[ext_resource type="Material" uid="uid://cnm63qmn0ean4" path="res://shaders/windmat.tres" id="12_iotsf"]
+[ext_resource type="Material" path="res://shaders/windmat.tres" id="12_iotsf"]
 [ext_resource type="Texture2D" uid="uid://s26h1f6qyvcx" path="res://images/frontmap/Big stone (3).PNG" id="13_215e1"]
 [ext_resource type="Texture2D" uid="uid://bv8jsyjtl78xt" path="res://images/frontmap/Big stone (2).PNG" id="13_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://b77g75gve4twv" path="res://images/frontmap/Big stone (4).PNG" id="15_7sc4i"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://bcr63s4sjayie" path="res://images/labels/textlabel2.png" id="27_5b14r"]
 [ext_resource type="Texture2D" uid="uid://06dfcbpk8kq3" path="res://images/frontmap/stone (2).PNG" id="27_xa8c5"]
 [ext_resource type="AudioStream" uid="uid://dybmgtgllxli1" path="res://A.wav" id="29_bnpwn"]
+[ext_resource type="Script" uid="uid://mu8ccul42jus" path="res://audio_stream_player.gd" id="30_36jdj"]
 
 [sub_resource type="Animation" id="Animation_mfdv2"]
 length = 0.001
@@ -415,3 +416,4 @@ game_control = NodePath("../Control")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_bnpwn")
 autoplay = true
+script = ExtResource("30_36jdj")
