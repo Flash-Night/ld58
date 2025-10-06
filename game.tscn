@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cppyyv1etyp1c"]
+[gd_scene load_steps=36 format=4 uid="uid://cppyyv1etyp1c"]
 
 [ext_resource type="PackedScene" uid="uid://crn883haovaie" path="res://player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://7soiu1mw6amc" path="res://game.gd" id="1_hve3p"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bvjl3kiln75ps" path="res://images/frontmap/stone (1).PNG" id="26_i2p71"]
 [ext_resource type="Texture2D" uid="uid://bcr63s4sjayie" path="res://images/labels/textlabel2.png" id="27_5b14r"]
 [ext_resource type="Texture2D" uid="uid://06dfcbpk8kq3" path="res://images/frontmap/stone (2).PNG" id="27_xa8c5"]
+[ext_resource type="AudioStream" uid="uid://dybmgtgllxli1" path="res://A.wav" id="29_bnpwn"]
 
 [sub_resource type="Animation" id="Animation_mfdv2"]
 length = 0.001
@@ -410,3 +411,7 @@ text = "使用怪物的特殊能力战斗！"
 scale = Vector2(0.8, 0.8)
 zoom = Vector2(1.25, 1.25)
 game_control = NodePath("../Control")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_bnpwn")
+autoplay = true
