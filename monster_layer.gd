@@ -15,7 +15,7 @@ func _ready() -> void:
 	var monsterList = get_children(false)
 	for _child in monsterList:
 		var p=_child.position
-		var pos = Vector2i(int(p.x / 64),int(p.y / 64))
+		var pos = Vector2i(floor(p.x / 64),floor(p.y / 64))
 		refresh_ability(pos,-1)
 		_child.init(true, -1, monsterDict,pos)
 		monsterDict[pos] = _child

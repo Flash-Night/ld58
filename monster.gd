@@ -209,7 +209,7 @@ func init_show_only(_id:int):
 	powerLabel.text = str(power)
 	
 
-func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i(-1,-1)) -> Vector2i:
+func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i.MIN) -> Vector2i:
 	#print(_isEnemy,_id)
 	self.show()
 	isEnemy = _isEnemy
@@ -252,8 +252,8 @@ func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i(-1,-1))
 	rollover.mouse_entered.connect(showInfo)
 	rollover.mouse_exited.connect(hideInfo)
 	
-	if _pos.x < 0:
-		pos = Vector2i(int(self.position.x / 64),int(self.position.y / 64))
+	if _pos.x < -999:
+		pos = Vector2i(floor(self.position.x / 64),floor(self.position.y / 64))
 	else:
 		pos = _pos
 	self.position.x = pos.x * 64 + 32
