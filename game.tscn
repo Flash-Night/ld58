@@ -229,6 +229,8 @@ id = 9
 position = Vector2(1056, 608)
 id = 6
 
+[node name="FrontMapLayer" type="Node2D" parent="."]
+
 [node name="Map" type="TileMapLayer" parent="."]
 z_index = -1
 material = ExtResource("6_vef74")
