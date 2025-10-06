@@ -49,3 +49,10 @@ script = ExtResource("3_v183y")
 [node name="Content" type="RichTextLabel" parent="Tooltip"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+
+[node name="LangBtn" type="Button" parent="."]
+offset_left = -622.0
+offset_top = -344.0
+offset_right = -494.0
+offset_bottom = -304.0
+text = "English"
