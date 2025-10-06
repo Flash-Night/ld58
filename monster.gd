@@ -49,6 +49,7 @@ static var icons:Array[Texture2D] = [
 static var monsterData:Dictionary = {
 	0:{
 		"name": "逆时雨",
+		"name_en": "Ni Shi Yu",
 		"power": 4,
 		"type": 1,
 		"description": "化祝为兽，为老巫觋所赠。\n“雨顺时康，蛮荒草木遍芬芳。”",
@@ -56,6 +57,7 @@ static var monsterData:Dictionary = {
 	},
 	1:{
 		"name": "弥烖兵",
+		"name_en": "Mi Zai Bing",
 		"power": 4,
 		"type": 2,
 		"description": "化祝为兽，为老巫觋所赠。\n“消灾厄，弥贼兵，祸乱兹息。”",
@@ -63,6 +65,7 @@ static var monsterData:Dictionary = {
 	},
 	2:{
 		"name": "宁风旱",
+		"name_en": "Nin Feng Han",
 		"power": 4,
 		"type": 3,
 		"description": "化祝为兽，为老巫觋所赠。\n“瑞祝通天，免有风旱涤山川。”",
@@ -70,6 +73,7 @@ static var monsterData:Dictionary = {
 	},
 	3:{
 		"name": "祈福祥",
+		"name_en": "Qi Fu Xiang",
 		"power": 3,
 		"type": 0,
 		"description": "化祝为兽，为老巫觋所赠。\n“上祈福祥，尚使丰穰能出云。”",
