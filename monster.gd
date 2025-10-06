@@ -33,6 +33,19 @@ static var pos9 = [
 
 static var powerChange:PackedScene = load("res://power_change_effect.tscn")
 
+static var icons:Array[Texture2D] = [
+	load("res://images/icons/逆时雨.png"),
+	load("res://images/icons/弥烖兵.png"),
+	load("res://images/icons/宁风旱.png"),
+	load("res://images/icons/祈福祥.png"),
+	load("res://images/icons/逆时雨.png"),
+	load("res://images/icons/寄生.png"),
+	load("res://images/icons/虺蛇.png"),
+	load("res://images/icons/鬼虎.png"),
+	load("res://images/icons/肥遗.png"),
+	load("res://images/icons/蛊疫.png")
+]
+
 static var monsterData:Dictionary = {
 	0:{
 		"name": "逆时雨",
@@ -149,7 +162,7 @@ var layer:Node2D
 @onready var redflag:Sprite2D = get_node("RedFlag")
 @onready var greenflag:Sprite2D = get_node("GreenFlag")
 @onready var powerLabel:Label = get_node("PowerLabel")
-@onready var typeRect:ColorRect = get_node("TypeRect")
+#@onready var typeRect:ColorRect = get_node("TypeRect")
 
 func _ready():
 	pass
@@ -164,14 +177,13 @@ func init_show_only(_id:int):
 	data = monsterData[id]
 	power = data["power"]
 	type = data["type"]
+	type = data["type"]
 	if type == 1:
-		typeRect.color = Color(0,0.5,1,1)
+		powerLabel.add_theme_color_override("font_color", Color(0,0.5,1,1))
 	elif type == 2:
-		typeRect.color = Color(1,0.25,0,1)
+		powerLabel.add_theme_color_override("font_color", Color(1,0.25,0,1))
 	elif type == 3:
-		typeRect.color = Color(0,1,0.5,1)
-	else:
-		typeRect.color = Color(1,1,1,1)
+		powerLabel.add_theme_color_override("font_color", Color(0,1,0.5,1))
 	
 	if data.has("ability"):
 		ability = data["ability"]
@@ -203,15 +215,16 @@ func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i(-1,-1))
 	basepower = data["power"]
 	power=basepower
 	
+	var icon:Sprite2D = $Icon
+	icon.texture = icons[id]
+	
 	type = data["type"]
 	if type == 1:
-		typeRect.color = Color(0,0.5,1,1)
+		powerLabel.add_theme_color_override("font_color", Color(0,0.5,1,1))
 	elif type == 2:
-		typeRect.color = Color(1,0.25,0,1)
+		powerLabel.add_theme_color_override("font_color", Color(1,0.25,0,1))
 	elif type == 3:
-		typeRect.color = Color(0,1,0.5,1)
-	else:
-		typeRect.color = Color(1,1,1,1)
+		powerLabel.add_theme_color_override("font_color", Color(0,1,0.5,1))
 	
 	if data.has("ability"):
 		ability = data["ability"]

@@ -1,33 +1,38 @@
 [gd_scene load_steps=5 format=3 uid="uid://canlrp32scija"]
 
 [ext_resource type="Script" uid="uid://sokpu5qrhrvu" path="res://monster.gd" id="1_s3gyj"]
-[ext_resource type="Texture2D" uid="uid://bawtve50f2r23" path="res://icon.svg" id="2_mrqeg"]
+[ext_resource type="Texture2D" uid="uid://drq2uci24todu" path="res://images/icons/逆时雨.png" id="2_vr0w3"]
 [ext_resource type="Texture2D" uid="uid://oxkte1kofw0h" path="res://images/redflag.png" id="3_ga5te"]
 [ext_resource type="Texture2D" uid="uid://bwdi84l00h5p6" path="res://images/greenflag.png" id="3_vr0w3"]
 
 [node name="Monster" type="Node2D"]
 script = ExtResource("1_s3gyj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_mrqeg")
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_vr0w3")
 
 [node name="PowerLabel" type="Label" parent="."]
 z_index = 1
-offset_left = 13.0
-offset_top = -38.0
-offset_right = 33.0
-offset_bottom = -15.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 17.0
+offset_top = -39.0
+offset_right = 37.0
+offset_bottom = -16.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 
 [node name="GreenFlag" type="Sprite2D" parent="."]
 z_index = -1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_vr0w3")
 
 [node name="RedFlag" type="Sprite2D" parent="."]
 z_index = -1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ga5te")
 
 [node name="Rollover" type="Control" parent="."]
@@ -37,9 +42,3 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
-
-[node name="TypeRect" type="ColorRect" parent="."]
-offset_left = 14.0
-offset_top = -34.0
-offset_right = 31.0
-offset_bottom = -17.0
