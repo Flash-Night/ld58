@@ -124,12 +124,13 @@ libraries = {
 
 [node name="PowerText" type="Label" parent="TextureButton"]
 layout_mode = 0
-offset_left = 108.33334
-offset_top = 33.33333
-offset_right = 487.50003
-offset_bottom = 132.33334
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 72
+offset_left = 112.5
+offset_top = 29.166664
+offset_right = 487.49997
+offset_bottom = 144.16666
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 84
 text = "1"
 horizontal_alignment = 1
 
@@ -143,10 +144,3 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 72
 text = "Name"
 horizontal_alignment = 1
-
-[node name="TypeRect" type="ColorRect" parent="TextureButton"]
-layout_mode = 0
-offset_left = 529.1667
-offset_top = 41.66667
-offset_right = 579.1666
-offset_bottom = 91.66663

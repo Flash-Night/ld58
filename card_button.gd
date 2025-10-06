@@ -2,7 +2,7 @@ extends Control
 
 @onready var btn:TextureButton = $TextureButton
 @onready var anim:AnimationPlayer = $TextureButton/AnimationPlayer
-@onready var typeRect:ColorRect = $TextureButton/TypeRect
+#@onready var typeRect:ColorRect = $TextureButton/TypeRect
 @onready var nameText:Label = $TextureButton/NameText
 @onready var powerText:Label = $TextureButton/PowerText
 
@@ -41,13 +41,13 @@ func init(_control:Control, _id:int) -> bool:
 	powerText.text = str(data["power"])
 	var type = data["type"]
 	if type == 1:
-		typeRect.color = Color(0,0.5,1,1)
+		powerText.add_theme_color_override("font_color", Color(0,0.5,1,1))
 	elif type == 2:
-		typeRect.color = Color(1,0.25,0,1)
+		powerText.add_theme_color_override("font_color", Color(1,0.25,0,1))
 	elif type == 3:
-		typeRect.color = Color(0,1,0.5,1)
+		powerText.add_theme_color_override("font_color", Color(0,1,0.5,1))
 	else:
-		typeRect.color = Color(0,0,0,1)
+		powerText.add_theme_color_override("font_color", Color(1,1,1,1))
 	
 	self.show()
 	if id < len(textures):
@@ -59,13 +59,13 @@ func disable():
 	btn.disabled = true;
 	nameText.hide()
 	powerText.hide()
-	typeRect.hide()
+	#typeRect.hide()
 
 func enable():
 	btn.disabled = false;
 	nameText.show()
 	powerText.show()
-	typeRect.show()
+	#typeRect.show()
 
 func initAnimation(section:float):
 	anim.play_section("init",section)

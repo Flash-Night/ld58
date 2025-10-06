@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://cppyyv1etyp1c"]
+[gd_scene load_steps=14 format=4 uid="uid://cppyyv1etyp1c"]
 
 [ext_resource type="PackedScene" uid="uid://crn883haovaie" path="res://player.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://7soiu1mw6amc" path="res://game.gd" id="1_hve3p"]
 [ext_resource type="Script" uid="uid://chbw2jku1340n" path="res://tooltip.gd" id="2_eow3j"]
 [ext_resource type="Script" uid="uid://4mgk2t02rju7" path="res://monster_layer.gd" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://canlrp32scija" path="res://monster.tscn" id="3_7jktm"]
@@ -133,6 +134,7 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_vef74")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_hve3p")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -144,8 +146,8 @@ script = ExtResource("6_ryrav")
 [node name="Tooltip" type="PanelContainer" parent="Control"]
 z_index = 99
 layout_mode = 0
-offset_right = 239.0
-offset_bottom = 114.0
+offset_right = 312.0
+offset_bottom = 137.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_eow3j")
 script = ExtResource("2_eow3j")
 
