@@ -43,6 +43,18 @@ static var icons:Array[Texture2D] = [
 	load("res://images/icons/虺蛇.png"),
 	load("res://images/icons/鬼虎.png"),
 	load("res://images/icons/肥遗.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"),
 	load("res://images/icons/蛊疫.png")
 ]
 
@@ -82,7 +94,7 @@ static var monsterData:Dictionary = {
 	4:{
 		"name": "诸怀",
 		"name_en": "Zhu Huai",
-		"power": 1,
+		"power": 3,
 		"type": 1,
 		"ability": 1,
 		"description": "牛四角人目彘耳，是则害人。\n周围四格所有怪物力量+1",
@@ -130,25 +142,99 @@ static var monsterData:Dictionary = {
 		"power": 3,
 		"type": 3,
 		"ability": 5,
-		"description": "皿虫而俾相啖，其存者为蛊。\n周围四格同时有水火草三种属性怪物时，自身力量*2",
+		"description": "皿虫而俾相啖，其存者为蛊。\n周围8格同时有水火草三种属性怪物时，自身力量加1倍",
 		"description_en": "The survivor of insects cannibalizing each other on a dish called Gu. \nPower*2 if orthogonally adjacent to water, nature and fire units"
 	},
 	10:{
 		"name": "BOSS",
-		"power": 6,
-		"type": 0,
-		"ability": 0,
-		"description": "",
+		"name_en": "BOSS",
+		"power": 3,
+		"type": 3,
+		"ability": 9,
+		"description": "周围八格所有草属性怪物力量+1，且每有一个草属性自身力量+1",
 		"description_en": ""
 	},
 	11:{
 		"name": "磐石",
+		"name_en": "磐石",
+		"power": 3,
+		"type": 2,
+		"ability": 10,
+		"description": "周围八格存在2个或以上火属性怪物时，周围八格怪物力量-1",
+		"description_en": "Uncollectable"
+	},
+	12:{
+		"name": "磐石",
+		"name_en": "磐石",
+		"power": 4,
+		"type": 2,
+		"ability": 11,
+		"description": "周围八格存在2个或以上火属性怪物时，力量+1",
+		"description_en": "Uncollectable"
+	},
+	13:{
+		"name": "磐石",
+		"name_en": "磐石",
+		"power": 4,
+		"type": 2,
+		"ability": 8,
+		"description": "飞行，周围4格力量加1倍",
+		"description_en": "Uncollectable"
+	},
+	14:{
+		"name": "磐石",
+		"name_en": "磐石",
+		"power": 2,
+		"type": 3,
+		"ability": 16,
+		"description": "飞行，周围8格同时有水火草三种属性怪物时，周围8格力量-1",
+		"description_en": "Uncollectable"
+	},
+	15:{
+		"name": "磐石",
+		"name_en": "磐石",
 		"power": 2,
 		"type": 0,
-		"ability": 0,
-		"description": "不可被收集",
+		"ability": 12,
+		"description": "飞行，周围八格所有无属性怪物力量+1",
 		"description_en": "Uncollectable"
-	}
+	},
+	16:{
+		"name": "磐石",
+		"name_en": "磐石",
+		"power": 2,
+		"type": 1,
+		"ability": 13,
+		"description": "飞行，周围八格所有水属性怪物力量+1",
+		"description_en": "Uncollectable"
+	},
+	17:{
+		"name": "磐石",
+		"name_en": "磐石",
+		"power": 2,
+		"type": 2,
+		"ability": 14,
+		"description": "飞行，周围八格所有火属性怪物力量+1",
+		"description_en": "Uncollectable"
+	},
+	18:{
+		"name": "磐石",
+		"name_en": "磐石",
+		"power": 2,
+		"type": 3,
+		"ability": 15,
+		"description": "飞行，周围八格所有草属性怪物力量+1",
+		"description_en": "Uncollectable"
+	},
+	19:{
+		"name": "磐石xxx",
+		"name_en": "磐石xxx",
+		"power": 2,
+		"type": 0,
+		"ability": 7,
+		"description": "周围8格每个属性使自身力量+1",
+		"description_en": "Uncollectablexx"
+	},
 }
 
 var data:Dictionary
@@ -335,7 +421,7 @@ func update_ability(x:int)->void:
 		var has:Array[bool]
 		for i in range(4):
 			has.append(false)
-		for rpos in pos4:
+		for rpos in pos8:
 			if monsterDict.has(pos + rpos):
 				var targetmonster = monsterDict[pos + rpos]
 				has[targetmonster.type]= true
@@ -347,6 +433,88 @@ func update_ability(x:int)->void:
 				var targetmonster = monsterDict[pos + rpos]
 				if targetmonster.type == 1:
 					targetmonster.powerAdder += 1*x
+	elif self.ability == 7:
+		var has:Array[bool]
+		for i in range(4):
+			has.append(false)
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				has[targetmonster.type]= true
+		for i in range(4):
+			if has[i] :
+				self.powerAdder+= 1*x
+	if self.ability == 8:
+		for rpos in pos4:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				targetmonster.powerMultiplier+=1*x
+	elif self.ability == 9:
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 3:
+					self.powerAdder += 1*x
+					targetmonster.powerAdder += 1*x
+	elif self.ability == 10:
+		var countF=0
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 2:
+					countF+=1
+		if countF>=2:
+			for rpos in pos8:
+				if monsterDict.has(pos + rpos):
+					var targetmonster = monsterDict[pos + rpos]
+					targetmonster.powerAdder -= 1*x
+	elif self.ability == 11:
+		var countF=0
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 2:
+					countF+=1
+		if countF>=2:
+			self.powerAdder+=1*x
+	elif self.ability == 12:
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 0:
+					targetmonster.powerAdder += 1*x
+	elif self.ability == 13:
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 1:
+					targetmonster.powerAdder += 1*x
+	elif self.ability == 14:
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 2:
+					targetmonster.powerAdder += 1*x
+	elif self.ability == 15:
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				if targetmonster.type == 3:
+					targetmonster.powerAdder += 1*x
+	elif self.ability == 16:
+		var has:Array[bool]
+		for i in range(4):
+			has.append(false)
+		for rpos in pos8:
+			if monsterDict.has(pos + rpos):
+				var targetmonster = monsterDict[pos + rpos]
+				has[targetmonster.type]= true
+		if has[1] && has[2] && has[3] :
+			for rpos in pos8:
+				if monsterDict.has(pos + rpos):
+					var targetmonster = monsterDict[pos + rpos]
+					targetmonster.powerAdder -= 1*x
+			
 		
 func update_power()->void:
 	var dpower = power

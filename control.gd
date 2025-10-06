@@ -6,7 +6,7 @@ extends Control
 @onready var page_button_r=$"../Button2"
 var selecting:int
 var buttons:Array[Control]
-var max_using = 10 # 8
+var max_using = 20 # 8
 var max_page = 2
 var now_page:int
 var scene :PackedScene
@@ -34,7 +34,7 @@ func _ready() -> void:
 		btn.position.y = 220
 		#buttons[i].hide()
 		if btn.init(game_control, i):
-			var section:float = 1 - i * 0.1
+			var section:float = 1.0
 			btn.initAnimation(section)
 		btn.btn.button_down.connect(bplace.bind(btn))
 	now_page=0
@@ -42,15 +42,21 @@ func _ready() -> void:
 	page_button_r.pressed.connect(switch_right)
 
 func switch_left():
-	scrollx = 0
+	scrollx+=7*160
+	if scrollx>0:
+		scrollx = 0
 
 func switch_right(id:int=-1):
 	if id == -1:
 		id = game_control.using_max
-	if id < 8 :
-		scrollx = 0
-	else:
-		scrollx = (7 - id) * 160
+	#if id < 8 :
+	#	scrollx = 0
+	#else:
+	#	scrollx = (7 - id) * 160
+	var min_x=(7-game_control.using_max)*160
+	scrollx-=7*160
+	if scrollx> min_x:
+		scrollx=min_x
 
 func switch_page(x:int)->void:
 	var next_page=now_page+x

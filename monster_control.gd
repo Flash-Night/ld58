@@ -8,7 +8,7 @@ extends Control
 
 var buttons:Array[Button]
 var scene=preload("res://tile_button.tscn")
-var using_max=10 # 8
+var using_max=20 # 8
 var page_max=2
 var now_page=0
 var using_pets_id:Array[int]
@@ -36,7 +36,7 @@ func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 
 func place_tile_buttons(id:int)->void:
 	selection = id
-	var isFly = selection == 8
+	var isFly = (selection == 8 || (selection>=13 && selection<=18))
 	remove_tile_buttons()
 	player.isIdle = false
 	selectlabel.showLabel()
@@ -61,7 +61,7 @@ func place_tile_buttons(id:int)->void:
 			
 func drop(pos):
 	player.isIdle = true
-	var isFly = selection == 8
+	var isFly = (selection == 8 || (selection>=13 && selection<=18))
 	if isDroppable(pos, isFly) && pets_used[selection]==false && using_pets_id[selection]!=-1:
 		monsterlayer.addPet(using_pets_id[selection], pos)
 		pets_used[selection]=true
