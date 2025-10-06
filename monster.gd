@@ -152,7 +152,7 @@ static var monsterData:Dictionary = {
 		"type": 3,
 		"ability": 9,
 		"description": "周围八格所有草属性怪物力量+1，且每有一个草属性自身力量+1",
-		"description_en": "surrounding nature units power +1 and make self nature+1"
+		"description_en": "Surrounding nature units power +1 and make self power +1"
 	},
 	11:{
 		"name": "磐石",
@@ -161,7 +161,7 @@ static var monsterData:Dictionary = {
 		"type": 2,
 		"ability": 10,
 		"description": "周围八格存在2个或以上火属性怪物时，周围八格怪物力量-1",
-		"description_en": "Uncollectable"
+		"description_en": "If surrounding by 2 or more fire units all surrounding units power-1"
 	},
 	12:{
 		"name": "磐石",
@@ -170,7 +170,7 @@ static var monsterData:Dictionary = {
 		"type": 2,
 		"ability": 11,
 		"description": "周围八格存在2个或以上火属性怪物时，力量+1",
-		"description_en": "Uncollectable"
+		"description_en": "If surrounding by 2 or more fire units power+1"
 	},
 	13:{
 		"name": "磐石",
@@ -179,7 +179,7 @@ static var monsterData:Dictionary = {
 		"type": 2,
 		"ability": 8,
 		"description": "飞行，周围4格力量加1倍",
-		"description_en": "Uncollectable"
+		"description_en": "Flying , all orthogonally adjacent units power+100%"
 	},
 	14:{
 		"name": "磐石",
@@ -188,7 +188,7 @@ static var monsterData:Dictionary = {
 		"type": 3,
 		"ability": 16,
 		"description": "飞行，周围8格同时有水火草三种属性怪物时，周围8格力量-1",
-		"description_en": "surrounding units power -1 if surrounding by water, nature and fire units"
+		"description_en": "Flying , surrounding units power -1 if surrounding by water, nature and fire units"
 	},
 	15:{
 		"name": "祈福祥……？",
@@ -233,7 +233,7 @@ static var monsterData:Dictionary = {
 		"type": 0,
 		"ability": 7,
 		"description": "周围8格每个属性使自身力量+1",
-		"description_en": "Every surronding "
+		"description_en": "Every type of surronding units make self power+1"
 	},
 }
 
