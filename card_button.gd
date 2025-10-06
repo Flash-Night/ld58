@@ -77,4 +77,5 @@ func mouseEnter():
 
 func mouseExit(speed:float = -0.75):
 	if !control.pets_used[id]:
+		Game.tooltip.hide()
 		anim.play("mouse_enter",-1, speed, true)
