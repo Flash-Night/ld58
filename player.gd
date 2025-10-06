@@ -46,6 +46,7 @@ func isMovable(targetpos:Vector2i) -> bool:
 func move(direction:String) -> void:
 	var targetpos = Vector2i(pos.x,pos.y)
 	animation.play(direction)
+	#animation.stop()
 	if direction == "left":
 		targetpos.x -= 1
 	elif direction == "right":
@@ -55,6 +56,7 @@ func move(direction:String) -> void:
 	elif direction == "front":
 		targetpos.y += 1
 	if isMovable(targetpos):
+		#animation.play(direction)
 		pos = targetpos
 		state = 1
 		moving()
@@ -79,4 +81,5 @@ func moving() -> void:
 		self.position.y = _posy
 		dy = 0
 	if dx == 0 and dy == 0:
+		#animation.stop()
 		state = 0

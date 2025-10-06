@@ -231,7 +231,7 @@ static var monsterData:Dictionary = {
 		"type": 0,
 		"ability": 7,
 		"description": "？？？？？ \n周围8格每个属性使自身力量+1",
-		"description_en": "????? \nEvery type of surronding units make self power+1"
+		"description_en": "????? \nEvery type of surronding units make this unknown creature power+1"
 	},
 }
 

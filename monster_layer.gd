@@ -71,7 +71,6 @@ func remove_with_pos(pos:Vector2i)->void:
 func free_monster(_anim_name:String, target_monster:Monster)->void:
 	remove_child(target_monster)
 	target_monster.queue_free()
-	print("aa")
 
 func refresh_ability(pos:Vector2i,x:int) -> void:
 	for dx in range(-1,2):
@@ -96,9 +95,20 @@ func refresh_power(pos:Vector2i) -> void:
 				if target_monster.capture():	
 					var id=target_monster.id
 					if id == 19:
+						ending(target_monster)
 						return
 					monsterControl.using_pets_id[id]=id
 					monsterControl.pets_used[id]=false
 					monsterControl.control.show_button_monster(id,id)
 					remove_with_pos(targetpos)
 					
+func ending(target_monster:Monster):
+	target_monster.get_node("GreenFlag").hide()
+	target_monster.get_node("RedFlag").hide()
+	target_monster.get_node("PowerLabel").hide()
+	var anim:AnimationPlayer = target_monster.get_node("AnimationPlayer")
+	anim.play("end")
+	anim.animation_finished.connect(ended)
+
+func ended(_anim:String):
+	get_tree().change_scene_to_file("res://end.tscn")

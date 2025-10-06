@@ -1,33 +1,45 @@
-[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://n5621v614ib5"]
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://n5621v614ib5"]
 
-[ext_resource type="Texture2D" uid="uid://oogxj6gs1wsd" path="res://images/主角/背面.png" id="1_vfr2u"]
-[ext_resource type="Texture2D" uid="uid://diqqkm4td05qr" path="res://images/主角/正面.png" id="2_weyxy"]
-[ext_resource type="Texture2D" uid="uid://bqff3v8oxvudx" path="res://images/主角/左面.png" id="3_v1el1"]
+[ext_resource type="Texture2D" uid="uid://burpcw3ldaq4s" path="res://images/主角/背走.png" id="2_v1el1"]
+[ext_resource type="Texture2D" uid="uid://c4svl17hjwgxk" path="res://images/主角/背走2.png" id="3_0uk38"]
+[ext_resource type="Texture2D" uid="uid://chi7llbrfos3w" path="res://images/主角/正走1.png" id="3_xg1qe"]
 [ext_resource type="Texture2D" uid="uid://cjvgf5vp45l0f" path="res://images/主角/右面.png" id="4_0uk38"]
+[ext_resource type="Texture2D" uid="uid://bbthoq1b5u6jr" path="res://images/主角/正走2.png" id="4_jmvei"]
+[ext_resource type="Texture2D" uid="uid://d0qvio8164mg6" path="res://images/主角/zuo1.png" id="5_0uk38"]
+[ext_resource type="Texture2D" uid="uid://j4wuycqckhqg" path="res://images/主角/zuo2.png" id="6_xg1qe"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vfr2u")
+"texture": ExtResource("2_v1el1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0uk38")
 }],
-"loop": true,
+"loop": false,
 "name": &"back",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_weyxy")
+"texture": ExtResource("3_xg1qe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jmvei")
 }],
-"loop": true,
+"loop": false,
 "name": &"front",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_v1el1")
+"texture": ExtResource("5_0uk38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xg1qe")
 }],
-"loop": true,
+"loop": false,
 "name": &"left",
 "speed": 5.0
 }, {
@@ -35,7 +47,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_0uk38")
 }],
-"loop": true,
+"loop": false,
 "name": &"right",
 "speed": 5.0
 }]

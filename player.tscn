@@ -8,6 +8,6 @@ script = ExtResource("1_onrkg")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.25, 0.25)
 sprite_frames = ExtResource("3_i3pqv")
-animation = &"front"
+animation = &"right"

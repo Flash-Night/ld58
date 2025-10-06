@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://canlrp32scija"]
+[gd_scene load_steps=9 format=3 uid="uid://canlrp32scija"]
 
 [ext_resource type="Script" uid="uid://sokpu5qrhrvu" path="res://monster.gd" id="1_s3gyj"]
 [ext_resource type="Texture2D" uid="uid://drq2uci24todu" path="res://images/icons/逆时雨.png" id="2_vr0w3"]
@@ -35,10 +35,50 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0.1, 0.1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8ngjm"]
+resource_name = "end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3, 3),
+"update": 0,
+"values": [0.0, 12.566370614359172]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 3),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ngjm"]
 _data = {
 &"RESET": SubResource("Animation_6tndq"),
+&"end": SubResource("Animation_8ngjm"),
 &"remove": SubResource("Animation_vr0w3")
 }
 
