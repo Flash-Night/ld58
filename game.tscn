@@ -376,6 +376,11 @@ position = Vector2(695, 297)
 scale = Vector2(0.456, 0.456)
 texture = ExtResource("13_215e1")
 
+[node name="Textlabel4" type="Sprite2D" parent="FrontMap"]
+position = Vector2(760.00006, 179)
+scale = Vector2(0.7733862, 0.7790522)
+texture = ExtResource("27_5b14r")
+
 [node name="Textlabel2" type="Sprite2D" parent="FrontMap"]
 position = Vector2(440.5, 632)
 scale = Vector2(1.5288136, 1.2337663)
@@ -398,6 +403,15 @@ text = "使用怪物卡牌收服新的怪物。
 position = Vector2(1256.3279, 495.5)
 scale = Vector2(0.88591236, 0.66883105)
 texture = ExtResource("27_5b14r")
+
+[node name="HintLabel3" type="Label" parent="FrontMap"]
+offset_left = 681.0
+offset_top = 147.0
+offset_right = 846.0
+offset_bottom = 231.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Z键可以收回所有放置的怪物。"
 
 [node name="HintLabel2" type="Label" parent="FrontMap"]
 offset_left = 1161.0
