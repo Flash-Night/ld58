@@ -60,17 +60,17 @@ func place_tile_buttons(id:int)->void:
 			buttons[k].pressed.connect(drop.bind(pos))
 			
 func drop(pos):
-	player.isIdle = true
 	var isFly = (selection == 8 || (selection>=13 && selection<=18))
 	if isDroppable(pos, isFly) && pets_used[selection]==false && using_pets_id[selection]!=-1:
 		monsterlayer.addPet(using_pets_id[selection], pos)
 		pets_used[selection]=true
 		control.buttons[selection].disable()
-	selectlabel.hideLabel()
-	selection = -1
 	remove_tile_buttons()
 
 func remove_tile_buttons()->void:
+	player.isIdle = true
+	selectlabel.hideLabel()
+	selection = -1
 	for b in buttons:
 		b.queue_free()
 	buttons.resize(0)

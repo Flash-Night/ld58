@@ -42,21 +42,25 @@ func _ready() -> void:
 	page_button_r.pressed.connect(switch_right)
 
 func switch_left():
-	scrollx+=7*160
+	scrollx+=4 * 160
 	if scrollx>0:
 		scrollx = 0
 
 func switch_right(id:int=-1):
 	if id == -1:
-		id = game_control.using_max
+		scrollx -= 4 * 160
+	else:
+		scrollx = (7-id)*160
 	#if id < 8 :
 	#	scrollx = 0
 	#else:
 	#	scrollx = (7 - id) * 160
 	var min_x=(7-game_control.using_max)*160
-	scrollx-=7*160
-	if scrollx> min_x:
-		scrollx=min_x
+	var max_x=0
+	if scrollx < min_x:
+		scrollx = min_x
+	elif scrollx > max_x:
+		scrollx = max_x
 
 func switch_page(x:int)->void:
 	var next_page=now_page+x
