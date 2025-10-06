@@ -96,12 +96,28 @@ static var monsterData:Dictionary = {
 		"description_en": "Flying"
 	},
 	9:{
-		"name": "诸怀",
+		"name": "蛊疫",
 		"power": 3,
-		"type": 1,
+		"type": 3,
 		"ability": 5,
-		"description": "牛四角人目彘耳，是则害人。\n周围四格同时有水火草三种属性怪物时，自身力量*2",
+		"description": "皿虫而俾相啖，其存者为蛊。\n周围四格同时有水火草三种属性怪物时，自身力量*2",
 		"description_en": "Power*2 if orthogonally adjacent to water, nature and fire units"
+	},
+	10:{
+		"name": "BOSS",
+		"power": 6,
+		"type": 0,
+		"ability": 0,
+		"description": "",
+		"description_en": ""
+	},
+	11:{
+		"name": "磐石",
+		"power": 2,
+		"type": 0,
+		"ability": 0,
+		"description": "不可被收集",
+		"description_en": "Uncollectable"
 	}
 }
 

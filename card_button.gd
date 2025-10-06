@@ -15,7 +15,8 @@ static var textures:Array[CompressedTexture2D] = [
 	load("res://images/cards/5.png"),
 	load("res://images/cards/6.png"),
 	load("res://images/cards/7.png"),
-	load("res://images/cards/8.png")
+	load("res://images/cards/8.png"),
+	load("res://images/cards/9.png")
 ]
 
 var control:Control
