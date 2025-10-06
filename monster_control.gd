@@ -27,11 +27,12 @@ func _ready() -> void:
 	selectlabel.hide()
 	
 	var hintl = $"../FrontMap/HintLabel"
+	var hintl2 = $"../FrontMap/HintLabel2"
+	var hintl3 = $"../FrontMap/HintLabel3"
 	if Game.language_en:
 		hintl.text = "Use monster cards to collect new monsters. \nPlace your own monsters around the target monster. \nIf the target monster is surrounded by your own monsters \nabove, below, left, and right, and all four monsters's power \nare higher than the target, you have captured and collected it."
-	var hintl2 = $"../FrontMap/HintLabel2"
-	if Game.language_en:
 		hintl2.text = "Fight using each monster's ability!"
+		hintl3.text = "Press Z to wtihdraw all \nyour monsters placed"
 	
 func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 	if monsterlayer.monsterDict.has(pos):
