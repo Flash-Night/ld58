@@ -35,9 +35,9 @@ func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 	return cellID == 0
 
 func place_tile_buttons(id:int)->void:
+	remove_tile_buttons()
 	selection = id
 	var isFly = (selection == 8 || (selection>=13 && selection<=18))
-	remove_tile_buttons()
 	player.isIdle = false
 	selectlabel.showLabel()
 	var playerpos = player.pos
@@ -86,3 +86,5 @@ func remove_pets() -> void:
 func _process(_delta: float) -> void:
 	if selection == -1 and Input.is_action_just_pressed("z"):
 		remove_pets()
+	if Input.is_action_just_pressed("ui_cancel"):
+		remove_tile_buttons()
