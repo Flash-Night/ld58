@@ -1,24 +1,22 @@
 extends Control
 
-@export var startbutton:Button
-@export var endbutton:Button
+@onready var startbutton:TextureButton = $Button
+@onready var anim:AnimationPlayer = $AnimationPlayer
 
-var mybutton:PackedScene
-var count:int = 0
+#var mybutton:PackedScene
+var game:PackedScene
 
 func _ready():
 	#startbutton.text = "Click me"
+	game = preload("res://game.tscn")
 	startbutton.pressed.connect(_start)
-	endbutton.pressed.connect(_createMyButton)
-	mybutton = load("res://mybutton.tscn")
+	anim.animation_finished.connect(switchScene)
+	#endbutton.pressed.connect(_createMyButton)
+	#mybutton = load("res://mybutton.tscn")
 
 func _start():
-	get_tree().change_scene_to_file("res://game.tscn")
+	startbutton.hide()
+	anim.play("fade")
 
-func _createMyButton():
-	if count < 10:
-		var mbinst = mybutton.instantiate()
-		add_child(mbinst)
-		mbinst.position.x = 50
-		mbinst.position.y = 70 * count
-		count += 1
+func switchScene(_anim_name:String):
+	get_tree().change_scene_to_packed(game)

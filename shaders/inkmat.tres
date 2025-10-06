@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bu658xlqkmg75"]
+
+[ext_resource type="Shader" uid="uid://cpt8dnm4a3p5l" path="res://shaders/ink.gdshader" id="1_ypu3e"]
+[ext_resource type="Texture2D" uid="uid://b8cnqk2dkmyxv" path="res://shaders/perlinnoise.tres" id="2_jq53s"]
+
+[resource]
+shader = ExtResource("1_ypu3e")
+shader_parameter/ink_color = Color(0.1, 0.1, 0.3, 1)
+shader_parameter/bleed_intensity = 0.5390000256025
+shader_parameter/bleed_speed = 1.078000051205
+shader_parameter/edge_blur = 0.030000001425
+shader_parameter/noise_texture = ExtResource("2_jq53s")
+shader_parameter/time = 0.0
