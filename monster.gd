@@ -143,7 +143,7 @@ static var monsterData:Dictionary = {
 		"type": 3,
 		"ability": 5,
 		"description": "皿虫而俾相啖，其存者为蛊。\n周围8格同时有水火草三种属性怪物时，自身力量加1倍",
-		"description_en": "The survivor of insects cannibalizing each other on a dish called Gu. \nPower*2 if orthogonally adjacent to water, nature and fire units"
+		"description_en": "The survivor of insects cannibalizing each other on a dish called Gu. \nPower+100% if orthogonally adjacent to water, nature and fire units"
 	},
 	10:{
 		"name": "BOSS",
@@ -191,49 +191,49 @@ static var monsterData:Dictionary = {
 		"description_en": "Uncollectable"
 	},
 	15:{
-		"name": "磐石",
-		"name_en": "磐石",
+		"name": "祈福祥……？",
+		"name_en": "Qi Fu Xiang...?",
 		"power": 2,
 		"type": 0,
 		"ability": 12,
 		"description": "飞行，周围八格所有无属性怪物力量+1",
-		"description_en": "Uncollectable"
+		"description_en": "Flying, all surronding neutral units power+1"
 	},
 	16:{
-		"name": "磐石",
-		"name_en": "磐石",
+		"name": "逆时雨……？",
+		"name_en": "Ni Shi Yu...?",
 		"power": 2,
 		"type": 1,
 		"ability": 13,
 		"description": "飞行，周围八格所有水属性怪物力量+1",
-		"description_en": "Uncollectable"
+		"description_en": "Flying, all surronding water units power+1"
 	},
 	17:{
-		"name": "磐石",
-		"name_en": "磐石",
+		"name": "弥烖兵……？",
+		"name_en": "Mi Zai Bing...?",
 		"power": 2,
 		"type": 2,
 		"ability": 14,
 		"description": "飞行，周围八格所有火属性怪物力量+1",
-		"description_en": "Uncollectable"
+		"description_en": "Flying, all surronding fire units power+1"
 	},
 	18:{
-		"name": "磐石",
-		"name_en": "磐石",
+		"name": "宁风旱……？",
+		"name_en": "Nin Feng Han...?",
 		"power": 2,
 		"type": 3,
 		"ability": 15,
 		"description": "飞行，周围八格所有草属性怪物力量+1",
-		"description_en": "Uncollectable"
+		"description_en": "Flying, all surronding nature units power+1"
 	},
 	19:{
-		"name": "磐石xxx",
-		"name_en": "磐石xxx",
+		"name": "？？？",
+		"name_en": "???",
 		"power": 2,
 		"type": 0,
 		"ability": 7,
 		"description": "周围8格每个属性使自身力量+1",
-		"description_en": "Uncollectablexx"
+		"description_en": "Every surronding "
 	},
 }
 
