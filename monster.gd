@@ -41,7 +41,7 @@ static var icons:Array[Texture2D] = [
 	load("res://images/icons/诸怀.png"),
 	load("res://images/icons/寄生.png"),
 	load("res://images/icons/虺蛇.png"),
-	load("res://images/icons/鬼虎_1.png"),
+	load("res://images/icons/鬼虎.png"),
 	load("res://images/icons/肥遗.png"),
 	load("res://images/icons/蛊疫.png")
 ]
