@@ -61,42 +61,47 @@ static var monsterData:Dictionary = {
 		"power": 1,
 		"type": 1,
 		"ability": 1,
-		"description": "Water, all adjacent units power+1"
+		"description": "Water, all orthogonally adjacent units power+1"
 	},
 	5:{
 		"name": "5",
 		"power": 3,
 		"type": 3,
 		"ability": 2,
-		"description": "Nature, power+1 when next to water unit"
+		"description": "周围四格有水属性怪物时，自身力量+1",
+		"description_en": "Nature, power+1 when orthogonally adjacent to water unit"
 	},
 	6:{
+		"name": "虺蛇",
+		"power": 3,
+		"type": 1,
+		"ability": 6,
+		"description": "博三寸，首大如擘，牙最毒。\n周围八格所有水属性怪物力量+1",
+		"description_en": " All surrounding water units power+1"
+	},
+	7:{
 		"name": "6",
 		"power": 3,
 		"type": 2,
 		"ability": 3,
-		"description": "Fire, all adjacent nature units power-1"
+		"description": "周围四格所有草属性怪物力量-1",
+		"description_en": "All orthogonally adjacent nature units power-1"
 	},
-	7:{
-		"name": "7",
+	8:{
+		"name": "寄生",
 		"power": 4,
 		"type": 3,
 		"ability": 4,
-		"description": "Nature, power+1 for every adjacent water units "
+		"description": "附皮毛施于血肉，葳蕤四垂。\n周围四格每有一个水属性怪物，自身力量+1",
+		"description_en": "Nature, power+1 for every orthogonally adjacent water unit"
 	},
-	8:{
-		"name": "8",
+	9:{
+		"name": "诸怀",
 		"power": 3,
 		"type": 1,
 		"ability": 5,
-		"description": "Water, Power*2 if adjacent water and nature nad fire units "
-	},
-	9:{
-		"name": "9",
-		"power": 3,
-		"type": 1,
-		"ability": 6,
-		"description": "Water, Power+1 for surrounding water units "
+		"description": "牛四角人目彘耳，是则害人。\n周围四格同时有水火草三种属性怪物时，自身力量*2",
+		"description_en": "Power*2 if orthogonally adjacent to water, nature and fire units"
 	}
 }
 

@@ -2,14 +2,17 @@ extends Control
 
 @onready var game_control:Control = $"..".game_control
 
-@onready var page_button_l=$Button
-@onready var page_button_r=$Button2
+@onready var page_button_l=$"../Button"
+@onready var page_button_r=$"../Button2"
 var selecting:int
 var buttons:Array[Control]
 var max_using = 10 # 8
 var max_page = 2
 var now_page:int
 var scene :PackedScene
+
+var scrollx:float = 0.0
+
 func _ready() -> void:
 	if scene != null:
 		return
@@ -27,7 +30,7 @@ func _ready() -> void:
 		var btn = scene.instantiate()
 		buttons.append(btn) 
 		self.add_child(btn)
-		btn.position.x = -625 + i * 140
+		btn.position.x = -625 + i * 160
 		btn.position.y = 220
 		#buttons[i].hide()
 		if btn.init(game_control, i):
@@ -35,9 +38,20 @@ func _ready() -> void:
 			btn.initAnimation(section)
 		btn.btn.button_down.connect(bplace.bind(btn))
 	now_page=0
-	page_button_l.pressed.connect(switch_page.bind(-1))
-	page_button_r.pressed.connect(switch_page.bind(1))
-	
+	page_button_l.pressed.connect(switch_left)
+	page_button_r.pressed.connect(switch_right)
+
+func switch_left():
+	scrollx = 0
+
+func switch_right(id:int=-1):
+	if id == -1:
+		id = game_control.using_max
+	if id < 8 :
+		scrollx = 0
+	else:
+		scrollx = (7 - id) * 160
+
 func switch_page(x:int)->void:
 	var next_page=now_page+x
 	if next_page>=max_page:
@@ -57,10 +71,12 @@ func bplace(button)->void:
 func show_button_monster (x:int,id:int)->void:
 	buttons[x].init(game_control, id)
 	buttons[x].mouseExit()
+	switch_right(id)
 	
-#func _process(_delta: float) -> void:
-	#pass
-	#selecting=0
-	#for i in range(max_using*max_page):
-		#if buttons[i].button_pressed:
-			#selecting=i
+func _process(_delta: float) -> void:
+	var dx = (scrollx - self.position.x) * 0.125
+	#if dx < -4.0:
+		#dx = -4.0
+	#elif dx > 4.0:
+		#dx = 4.0
+	self.position.x += dx

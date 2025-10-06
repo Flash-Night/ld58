@@ -6,7 +6,7 @@ extends Control
 @onready var control=camera.get_node("Control")
 var buttons:Array[Button]
 var scene=preload("res://tile_button.tscn")
-var using_max=8
+var using_max=10 # 8
 var page_max=2
 var now_page=0
 var using_pets_id:Array[int]
@@ -15,7 +15,7 @@ var pets_used:Array[bool]
 var selection:int = -1
 
 func _ready() -> void:
-	for i in range(using_max*page_max):
+	for i in range(using_max):
 		using_pets_id.append(-1)
 		pets_used.append(false)
 	for i in range(0,4):

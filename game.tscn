@@ -144,7 +144,7 @@ script = ExtResource("6_ryrav")
 [node name="Tooltip" type="PanelContainer" parent="Control"]
 z_index = 99
 layout_mode = 0
-offset_right = 209.0
+offset_right = 239.0
 offset_bottom = 114.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_eow3j")
 script = ExtResource("2_eow3j")
@@ -169,19 +169,19 @@ id = 5
 
 [node name="Monster3" parent="MonsterLayer" instance=ExtResource("3_7jktm")]
 position = Vector2(1056, 355)
-id = 6
+id = 7
 
 [node name="Monster4" parent="MonsterLayer" instance=ExtResource("3_7jktm")]
 position = Vector2(1440, 672)
-id = 7
+id = 8
 
 [node name="Monster5" parent="MonsterLayer" instance=ExtResource("3_7jktm")]
 position = Vector2(1824, 736)
-id = 8
+id = 9
 
 [node name="Monster6" parent="MonsterLayer" instance=ExtResource("3_7jktm")]
 position = Vector2(1056, 608)
-id = 9
+id = 6
 
 [node name="Map" type="TileMapLayer" parent="."]
 z_index = -1
