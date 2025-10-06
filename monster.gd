@@ -57,11 +57,12 @@ static var monsterData:Dictionary = {
 		"description": "上祈福祥，尚使丰穰能出云。"
 	},
 	4:{
-		"name": "4",
+		"name": "诸怀",
 		"power": 1,
 		"type": 1,
 		"ability": 1,
-		"description": "Water, all orthogonally adjacent units power+1"
+		"description": "牛四角人目彘耳，是则害人。\n周围四格所有怪物力量+1",
+		"description_en": "All orthogonally adjacent units power+1"
 	},
 	5:{
 		"name": "寄生",
@@ -89,7 +90,7 @@ static var monsterData:Dictionary = {
 	},
 	8:{
 		"name": "肥遗",
-		"power": 4,
+		"power": 3,
 		"type": 2,
 		"ability": 0,
 		"description": "蛇六足四翼者，主千里大旱。\n飞行",
