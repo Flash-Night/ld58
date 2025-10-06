@@ -16,6 +16,16 @@ static var textures:Array[CompressedTexture2D] = [
 	load("res://images/cards/6.png"),
 	load("res://images/cards/7.png"),
 	load("res://images/cards/8.png"),
+	load("res://images/cards/9.png"),
+	load("res://images/cards/5.png"), #10
+	load("res://images/cards/7.png"),
+	load("res://images/cards/7.png"),
+	load("res://images/cards/8.png"),
+	load("res://images/cards/9.png"),
+	load("res://images/cards/3.png"), #15
+	load("res://images/cards/0.png"),
+	load("res://images/cards/1.png"),
+	load("res://images/cards/2.png"),
 	load("res://images/cards/9.png")
 ]
 

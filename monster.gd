@@ -38,23 +38,21 @@ static var icons:Array[Texture2D] = [
 	load("res://images/icons/弥烖兵.png"),
 	load("res://images/icons/宁风旱.png"),
 	load("res://images/icons/祈福祥.png"),
-	load("res://images/icons/诸怀.png"),
+	load("res://images/icons/诸怀.png"), #4
 	load("res://images/icons/寄生.png"),
 	load("res://images/icons/虺蛇.png"),
 	load("res://images/icons/鬼虎.png"),
 	load("res://images/icons/肥遗.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
-	load("res://images/icons/蛊疫.png"),
+	load("res://images/icons/蛊疫.png"), #9
+	load("res://images/icons/寄生.png"), #10
+	load("res://images/icons/鬼虎.png"),
+	load("res://images/icons/鬼虎.png"),
+	load("res://images/icons/肥遗.png"),
+	load("res://images/icons/蛊疫.png"), #14
+	load("res://images/icons/祈福祥.png"), #15
+	load("res://images/icons/逆时雨.png"),
+	load("res://images/icons/弥烖兵.png"),
+	load("res://images/icons/宁风旱.png"),
 	load("res://images/icons/蛊疫.png")
 ]
 
@@ -146,49 +144,49 @@ static var monsterData:Dictionary = {
 		"description_en": "The survivor of insects cannibalizing each other on a dish called Gu. \nPower+100% if surrounding by water, nature and fire units"
 	},
 	10:{
-		"name": "BOSS",
-		"name_en": "BOSS",
+		"name": "寄生",
+		"name_en": "Ji Sheng",
 		"power": 3,
 		"type": 3,
 		"ability": 9,
-		"description": "周围八格所有草属性怪物力量+1，且每有一个草属性自身力量+1",
-		"description_en": "Surrounding nature units power +1 and make self power +1"
+		"description": "附皮毛施于血肉，葳蕤四垂。\n周围八格所有草属性怪物力量+1，且每有一个草属性自身力量+1",
+		"description_en": "A polymeric substance attaching to fur, nourished by blood and flesh, with stems slender and dense. Surrounding nature units power +1 and make self power +1"
 	},
 	11:{
-		"name": "磐石",
-		"name_en": "磐石",
+		"name": "鬼虎",
+		"name_en": "Gui Hu",
 		"power": 3,
 		"type": 2,
 		"ability": 10,
-		"description": "周围八格存在2个或以上火属性怪物时，周围八格怪物力量-1",
-		"description_en": "If surrounding by 2 or more fire units all surrounding units power-1"
+		"description": "有青兽，人面虎身，是食人。\n周围八格存在2个或以上火属性怪物时，周围八格怪物力量-1",
+		"description_en": "A green beast with human face and tiger body, which likes to eat people. \nIf surrounding by 2 or more fire units all surrounding units power-1"
 	},
 	12:{
-		"name": "磐石",
-		"name_en": "磐石",
+		"name": "鬼虎",
+		"name_en": "Gui Hu",
 		"power": 4,
 		"type": 2,
 		"ability": 11,
-		"description": "周围八格存在2个或以上火属性怪物时，力量+1",
-		"description_en": "If surrounding by 2 or more fire units power+1"
+		"description": "有青兽，人面虎身，是食人。\n周围八格存在2个或以上火属性怪物时，力量+1",
+		"description_en": "A green beast with human face and tiger body, which likes to eat people. \nIf surrounding by 2 or more fire units power+1"
 	},
 	13:{
-		"name": "磐石",
-		"name_en": "磐石",
+		"name": "肥遗",
+		"name_en": "Fei Yi",
 		"power": 4,
 		"type": 2,
 		"ability": 8,
-		"description": "飞行，周围4格力量加1倍",
-		"description_en": "Flying , all orthogonally adjacent units power+100%"
+		"description": "蛇六足四翼者，主千里大旱。\n飞行，周围4格力量加1倍",
+		"description_en": "A snake with six legs and four wings, indicating a severe drought of a thousand miles. \nFlying, all orthogonally adjacent units power+100%"
 	},
 	14:{
-		"name": "磐石",
-		"name_en": "磐石",
+		"name": "蛊疫",
+		"name_en": "Gu Yi",
 		"power": 2,
 		"type": 3,
 		"ability": 16,
-		"description": "飞行，周围8格同时有水火草三种属性怪物时，周围8格力量-1",
-		"description_en": "Flying , surrounding units power -1 if surrounding by water, nature and fire units"
+		"description": "皿虫而俾相啖，其存者为蛊。\n飞行，周围8格同时有水火草三种属性怪物时，周围8格力量-1",
+		"description_en": "The survivor of insects cannibalizing each other on a dish called Gu. \nFlying, surrounding units power -1 if surrounding by water, nature and fire units"
 	},
 	15:{
 		"name": "祈福祥……？",
@@ -196,8 +194,8 @@ static var monsterData:Dictionary = {
 		"power": 2,
 		"type": 0,
 		"ability": 12,
-		"description": "飞行，周围八格所有无属性怪物力量+1",
-		"description_en": "Flying, all surronding neutral units power+1"
+		"description": "那不是我的造物吗……？\n飞行，周围八格所有无属性怪物力量+1",
+		"description_en": "Isn't that my creature...? \nFlying, all surronding neutral units power+1"
 	},
 	16:{
 		"name": "逆时雨……？",
@@ -205,8 +203,8 @@ static var monsterData:Dictionary = {
 		"power": 2,
 		"type": 1,
 		"ability": 13,
-		"description": "飞行，周围八格所有水属性怪物力量+1",
-		"description_en": "Flying, all surronding water units power+1"
+		"description": "那不是我的造物吗……？\n飞行，周围八格所有水属性怪物力量+1",
+		"description_en": "Isn't that my creature...? \nFlying, all surronding water units power+1"
 	},
 	17:{
 		"name": "弥烖兵……？",
@@ -214,8 +212,8 @@ static var monsterData:Dictionary = {
 		"power": 2,
 		"type": 2,
 		"ability": 14,
-		"description": "飞行，周围八格所有火属性怪物力量+1",
-		"description_en": "Flying, all surronding fire units power+1"
+		"description": "那不是我的造物吗……？\n飞行，周围八格所有火属性怪物力量+1",
+		"description_en": "Isn't that my creature...? \nFlying, all surronding fire units power+1"
 	},
 	18:{
 		"name": "宁风旱……？",
@@ -223,8 +221,8 @@ static var monsterData:Dictionary = {
 		"power": 2,
 		"type": 3,
 		"ability": 15,
-		"description": "飞行，周围八格所有草属性怪物力量+1",
-		"description_en": "Flying, all surronding nature units power+1"
+		"description": "那不是我的造物吗……？\n飞行，周围八格所有草属性怪物力量+1",
+		"description_en": "Isn't that my creature...? \nFlying, all surronding nature units power+1"
 	},
 	19:{
 		"name": "？？？",
@@ -232,8 +230,8 @@ static var monsterData:Dictionary = {
 		"power": 2,
 		"type": 0,
 		"ability": 7,
-		"description": "周围8格每个属性使自身力量+1",
-		"description_en": "Every type of surronding units make self power+1"
+		"description": "？？？？？ \n周围8格每个属性使自身力量+1",
+		"description_en": "????? \nEvery type of surronding units make self power+1"
 	},
 }
 

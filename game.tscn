@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://canlrp32scija" path="res://monster.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://5rp7htiqtlyd" path="res://camera_ui.tscn" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://bee4p3tyykrwn" path="res://images/labels/selectlabel.png" id="4_hve3p"]
-[ext_resource type="Script" path="res://selectlabel.gd" id="5_mfdv2"]
+[ext_resource type="Script" uid="uid://kuys0ohyardf" path="res://selectlabel.gd" id="5_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://boltm1gbyup38" path="res://images/grass1.png" id="6_eow3j"]
 [ext_resource type="Script" uid="uid://b8lumeqhn4xss" path="res://monster_control.gd" id="6_ryrav"]
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="6_vef74"]
