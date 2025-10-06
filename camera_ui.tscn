@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://5rp7htiqtlyd"]
+[gd_scene load_steps=5 format=3 uid="uid://5rp7htiqtlyd"]
 
 [ext_resource type="Script" uid="uid://bb7dygvxnsmso" path="res://camera_2d.gd" id="1_js8ic"]
 [ext_resource type="Script" uid="uid://l4vnlsubjoxy" path="res://control.gd" id="2_v183y"]
+[ext_resource type="Script" uid="uid://chbw2jku1340n" path="res://tooltip.gd" id="3_v183y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmcrb"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.49803922)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Camera2D" type="Camera2D"]
 z_index = 2
@@ -28,7 +40,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_v183y")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Tooltip" type="PanelContainer" parent="."]
+z_index = 99
+offset_left = 175.0
+offset_top = -349.0
+offset_right = 629.0
+offset_bottom = -227.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rmcrb")
+script = ExtResource("3_v183y")
+
+[node name="Content" type="RichTextLabel" parent="Tooltip"]
+layout_mode = 2

@@ -41,7 +41,7 @@ static var icons:Array[Texture2D] = [
 	load("res://images/icons/逆时雨.png"),
 	load("res://images/icons/寄生.png"),
 	load("res://images/icons/虺蛇.png"),
-	load("res://images/icons/鬼虎.png"),
+	load("res://images/icons/鬼虎_1.png"),
 	load("res://images/icons/肥遗.png"),
 	load("res://images/icons/蛊疫.png")
 ]
@@ -51,29 +51,29 @@ static var monsterData:Dictionary = {
 		"name": "逆时雨",
 		"power": 4,
 		"type": 1,
-		"description": "雨顺时康，蛮荒草木遍芬芳。",
-		"description_en": "雨顺时康，蛮荒草木遍芬芳。"
+		"description": "化祝为兽，为老巫觋所赠。\n“雨顺时康，蛮荒草木遍芬芳。”",
+		"description_en": "A monster born from a wish, given by Wu Xi as a gift. \"May seasonal rains bring timely health, and wild plants and grasses bloom with fragrant wealth.\""
 	},
 	1:{
 		"name": "弥烖兵",
 		"power": 4,
 		"type": 2,
-		"description": "消灾厄，弥贼兵，祸乱兹息。",
-		"description_en": "消灾厄，弥贼兵，祸乱兹息。"
+		"description": "化祝为兽，为老巫觋所赠。\n“消灾厄，弥贼兵，祸乱兹息。”",
+		"description_en": "A monster born from a wish, given by Wu Xi as a gift. \"Ward off disasters and woes, thwart enemy hordes, so turmoil ceases and peace is restored.\""
 	},
 	2:{
 		"name": "宁风旱",
 		"power": 4,
 		"type": 3,
-		"description": "瑞祝通天，免有风旱涤山川。",
-		"description_en": "瑞祝通天，免有风旱涤山川。"
+		"description": "化祝为兽，为老巫觋所赠。\n“瑞祝通天，免有风旱涤山川。”",
+		"description_en": "A monster born from a wish, given by Wu Xi as a gift. \"May sacred prayers reach heaven’s gate, sparing the land from storms or drought, cleansing mountains and rivers’ state.\""
 	},
 	3:{
 		"name": "祈福祥",
 		"power": 3,
 		"type": 0,
-		"description": "上祈福祥，尚使丰穰能出云。",
-		"description_en": "上祈福祥，尚使丰穰能出云。"
+		"description": "化祝为兽，为老巫觋所赠。\n“上祈福祥，尚使丰穰能出云。”",
+		"description_en": "A monster born from a wish, given by Wu Xi as a gift. \"We pray for blessings from above, that clouds may yield abundant harvests, filled with grace and love.\""
 	},
 	4:{
 		"name": "诸怀",
@@ -259,15 +259,11 @@ func init(_isEnemy:bool, _id:int, _monsterDict, _pos:Vector2i = Vector2i(-1,-1))
 	return pos
 	
 func showInfo():
-	var tooltip = $"../../Control/Tooltip"
-	tooltip.show()
-	if Game.language_en:
-		tooltip.showInfo(Vector2(self.position),data["description_en"])
-	else:
-		tooltip.showInfo(Vector2(self.position),data["description"])
+	Game.tooltip.showDescription(data)
+
 
 func hideInfo():
-	var tooltip = $"../../Control/Tooltip"
+	var tooltip = Game.tooltip
 	tooltip.hide()
 
 #func refresh():
