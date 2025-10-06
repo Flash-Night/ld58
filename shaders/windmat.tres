@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cnm63qmn0ean4"]
+
+[ext_resource type="Shader" uid="uid://cxp0vf6xrpk13" path="res://shaders/wind.gdshader" id="1_nsu7l"]
+
+[resource]
+shader = ExtResource("1_nsu7l")
+shader_parameter/sway_strength = 0.15
+shader_parameter/sway_speed = 1.5
+shader_parameter/noise_strength = 0.5
