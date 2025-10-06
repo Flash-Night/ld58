@@ -85,10 +85,12 @@ func initAnimation(section:float):
 
 func mouseEnter():
 	if !control.pets_used[id]:
+		self.z_index = 10
 		Game.tooltip.showDescription(data)
 		anim.play("mouse_enter")
 
 func mouseExit(speed:float = -0.75):
 	if !control.pets_used[id]:
+		self.z_index = 0
 		Game.tooltip.hide()
 		anim.play("mouse_enter",-1, speed, true)
