@@ -70,6 +70,14 @@ z_index = -99
 position = Vector2(640, 360)
 texture = ExtResource("5_lquwl")
 
+[node name="LangBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1131.0
+offset_top = 666.0
+offset_right = 1259.0
+offset_bottom = 706.0
+text = "English"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_272bh")

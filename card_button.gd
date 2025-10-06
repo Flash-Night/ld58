@@ -50,7 +50,7 @@ func init(_control:Control, _id:int) -> bool:
 	if Game.language_en:
 		nameText.text = data["name_en"]
 	else:
-		nameText.text = data["name_en"]
+		nameText.text = data["name"]
 	powerText.text = str(data["power"])
 	var type = data["type"]
 	if type == 1:

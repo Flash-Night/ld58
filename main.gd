@@ -11,6 +11,8 @@ func _ready():
 	game = preload("res://game.tscn")
 	startbutton.pressed.connect(_start)
 	anim.animation_finished.connect(switchScene)
+	$LangBtn.pressed.connect(switchLanguage)
+	
 	#endbutton.pressed.connect(_createMyButton)
 	#mybutton = load("res://mybutton.tscn")
 
@@ -20,3 +22,11 @@ func _start():
 
 func switchScene(_anim_name:String):
 	get_tree().change_scene_to_packed(game)
+
+func switchLanguage():
+	if Game.language_en:
+		Game.language_en = false
+		$LangBtn.text = "简体中文"
+	else:
+		Game.language_en = true
+		$LangBtn.text = "English"

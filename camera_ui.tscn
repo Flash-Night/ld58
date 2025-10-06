@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b4yg1b3f7r3di" path="res://images/bg.png" id="7_kwv6e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q871f"]
-content_margin_left = 95.0
-content_margin_top = 50.0
+content_margin_left = 100.0
+content_margin_top = 55.0
 content_margin_right = 40.0
 content_margin_bottom = 20.0
 texture = ExtResource("3_rmcrb")
@@ -43,22 +43,15 @@ script = ExtResource("2_v183y")
 [node name="Tooltip" type="PanelContainer" parent="."]
 z_index = 99
 offset_left = 83.0
-offset_top = -367.0
-offset_right = 642.0
-offset_bottom = -191.0
+offset_top = -371.0
+offset_right = 648.0
+offset_bottom = -168.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_q871f")
 script = ExtResource("3_v183y")
 
 [node name="Content" type="RichTextLabel" parent="Tooltip"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-
-[node name="LangBtn" type="Button" parent="."]
-offset_left = -622.0
-offset_top = -344.0
-offset_right = -494.0
-offset_bottom = -304.0
-text = "English"
 
 [node name="White" type="Sprite2D" parent="."]
 z_index = -10

@@ -95,6 +95,8 @@ func refresh_power(pos:Vector2i) -> void:
 				var target_monster = monsterDict[targetpos]
 				if target_monster.capture():	
 					var id=target_monster.id
+					if id == 19:
+						return
 					monsterControl.using_pets_id[id]=id
 					monsterControl.pets_used[id]=false
 					monsterControl.control.show_button_monster(id,id)

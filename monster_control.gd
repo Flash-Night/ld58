@@ -25,7 +25,14 @@ func _ready() -> void:
 		#control.show_button_monster(i,i)
 	control.game_control=self
 	selectlabel.hide()
-
+	
+	var hintl = $"../FrontMap/HintLabel"
+	if Game.language_en:
+		hintl.text = "Use monster cards to collect new monsters. \nPlace your own monsters around the target monster. \nIf the target monster is surrounded by your own monsters \nabove, below, left, and right, and all four monsters's power \nare higher than the target, you have captured and collected it."
+	var hintl2 = $"../FrontMap/HintLabel2"
+	if Game.language_en:
+		hintl2.text = "Fight using each monster's ability!"
+	
 func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 	if monsterlayer.monsterDict.has(pos):
 		return false

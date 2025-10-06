@@ -17,7 +17,6 @@ func _ready() -> void:
 	mat.set_shader_parameter("cloud_threshold", threshold)
 	mat.set_shader_parameter("edge_hardness", edge_hardness)
 	player = get_parent().get_node("Player")
-	$LangBtn.pressed.connect(Game.switchLanguage.bind($LangBtn))
 
 func _process(_delta: float) -> void:
 	if threshold > 0.5:

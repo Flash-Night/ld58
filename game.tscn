@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cppyyv1etyp1c"]
+[gd_scene load_steps=35 format=4 uid="uid://cppyyv1etyp1c"]
 
 [ext_resource type="PackedScene" uid="uid://crn883haovaie" path="res://player.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://7soiu1mw6amc" path="res://game.gd" id="1_hve3p"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://fho6i17wijh1" path="res://images/frontmap/tree (2).PNG" id="24_f1jbl"]
 [ext_resource type="Texture2D" uid="uid://ciyyc78838hv" path="res://images/frontmap/tree (3).PNG" id="25_vaj68"]
 [ext_resource type="Texture2D" uid="uid://bvjl3kiln75ps" path="res://images/frontmap/stone (1).PNG" id="26_i2p71"]
+[ext_resource type="Texture2D" uid="uid://bcr63s4sjayie" path="res://images/labels/textlabel2.png" id="27_5b14r"]
 [ext_resource type="Texture2D" uid="uid://06dfcbpk8kq3" path="res://images/frontmap/stone (2).PNG" id="27_xa8c5"]
 
 [sub_resource type="Animation" id="Animation_mfdv2"]
@@ -304,76 +305,108 @@ texture = ExtResource("13_lc2xo")
 position = Vector2(791, 666)
 texture = ExtResource("11_iotsf")
 
-[node name="BigStone(3)" type="Sprite2D" parent="FrontMap"]
-position = Vector2(695, 297)
-scale = Vector2(0.456, 0.456)
-texture = ExtResource("13_215e1")
-
-[node name="Camera2D" parent="." node_paths=PackedStringArray("game_control") instance=ExtResource("3_feb5d")]
-scale = Vector2(0.8, 0.8)
-zoom = Vector2(1.25, 1.25)
-game_control = NodePath("../Control")
-
-[node name="BigStone(4)" type="Sprite2D" parent="."]
+[node name="BigStone(4)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(57, 662)
 scale = Vector2(0.862, 0.862)
 texture = ExtResource("15_7sc4i")
 
-[node name="BigStone(5)" type="Sprite2D" parent="."]
+[node name="BigStone(5)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(1365, 625)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("16_rvswv")
 
-[node name="BigStone(6)" type="Sprite2D" parent="."]
+[node name="BigStone(6)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(2571, 735)
 scale = Vector2(0.532, 0.532)
 texture = ExtResource("17_boyg6")
 
-[node name="BigStone(7)" type="Sprite2D" parent="."]
+[node name="BigStone(7)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(2720.9998, 887)
 scale = Vector2(0.58, 0.58)
 texture = ExtResource("18_e36ub")
 
-[node name="Grass(1)" type="Sprite2D" parent="."]
+[node name="Grass(1)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(559, 292)
 scale = Vector2(0.348, 0.348)
 texture = ExtResource("19_e36ub")
 
-[node name="Grass(2)" type="Sprite2D" parent="."]
+[node name="Grass(2)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(1549, 645)
 scale = Vector2(0.45400006, 0.45400006)
 texture = ExtResource("20_hb5m1")
 
-[node name="Grass(3)" type="Sprite2D" parent="."]
+[node name="Grass(3)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(2385, 426)
 scale = Vector2(0.414, 0.414)
 texture = ExtResource("21_hb5m1")
 
-[node name="Tree(1)" type="Sprite2D" parent="."]
+[node name="Tree(1)" type="Sprite2D" parent="FrontMap"]
 material = ExtResource("12_iotsf")
 position = Vector2(835.99994, 379.99997)
 scale = Vector2(0.40649995, 0.40649995)
 texture = ExtResource("23_qhcbd")
 
-[node name="Tree(2)" type="Sprite2D" parent="."]
+[node name="Tree(2)" type="Sprite2D" parent="FrontMap"]
 z_index = -3
 material = ExtResource("12_iotsf")
 position = Vector2(2234.9375, 676.06256)
 scale = Vector2(0.4762498, 0.4762498)
 texture = ExtResource("24_f1jbl")
 
-[node name="Tree(3)" type="Sprite2D" parent="."]
+[node name="Tree(3)" type="Sprite2D" parent="FrontMap"]
 material = ExtResource("12_iotsf")
 position = Vector2(2644, 1083)
 scale = Vector2(0.46900004, 0.46900004)
 texture = ExtResource("25_vaj68")
 
-[node name="Stone(1)" type="Sprite2D" parent="."]
+[node name="Stone(1)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(318, 330)
 scale = Vector2(0.71, 0.71)
 texture = ExtResource("26_i2p71")
 
-[node name="Stone(2)" type="Sprite2D" parent="."]
+[node name="Stone(2)" type="Sprite2D" parent="FrontMap"]
 position = Vector2(1169, 248)
 scale = Vector2(0.546, 0.546)
 texture = ExtResource("27_xa8c5")
+
+[node name="BigStone(3)" type="Sprite2D" parent="FrontMap"]
+position = Vector2(695, 297)
+scale = Vector2(0.456, 0.456)
+texture = ExtResource("13_215e1")
+
+[node name="Textlabel2" type="Sprite2D" parent="FrontMap"]
+position = Vector2(440.5, 632)
+scale = Vector2(1.5288136, 1.2337663)
+texture = ExtResource("27_5b14r")
+
+[node name="HintLabel" type="Label" parent="FrontMap"]
+offset_left = 277.0
+offset_top = 572.0
+offset_right = 623.0
+offset_bottom = 699.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "使用怪物卡牌收服新的怪物。
+将自己拥有的怪物放置在目标怪物周围，
+当目标怪物上下左右均为己方怪物且力量值均高于目标，
+则成功收服。
+	"
+
+[node name="Textlabel3" type="Sprite2D" parent="FrontMap"]
+position = Vector2(1256.3279, 495.5)
+scale = Vector2(0.88591236, 0.66883105)
+texture = ExtResource("27_5b14r")
+
+[node name="HintLabel2" type="Label" parent="FrontMap"]
+offset_left = 1161.0
+offset_top = 468.0
+offset_right = 1361.0
+offset_bottom = 552.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "使用怪物的特殊能力战斗！"
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("game_control") instance=ExtResource("3_feb5d")]
+scale = Vector2(0.8, 0.8)
+zoom = Vector2(1.25, 1.25)
+game_control = NodePath("../Control")
