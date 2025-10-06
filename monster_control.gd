@@ -34,6 +34,7 @@ func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 func place_tile_buttons(id:int)->void:
 	selection = id
 	remove_tile_buttons()
+	player.isIdle = false
 	var playerpos = player.pos
 	var x = playerpos.x*64.0
 	var y = playerpos.y*64.0
@@ -49,6 +50,7 @@ func place_tile_buttons(id:int)->void:
 			buttons[k].pressed.connect(drop.bind(pos))
 			
 func drop(pos):
+	player.isIdle = true
 	if isDroppable(pos, false) && pets_used[selection]==false && using_pets_id[selection]!=-1:
 		monsterlayer.addPet(using_pets_id[selection], pos)
 		pets_used[selection]=true
@@ -68,6 +70,7 @@ func remove_pets() -> void:
 			if using_pets_id[i]==j :
 				pets_used[i]=false
 				control.buttons[i].enable()
+				control.buttons[i].initAnimation(0.8 + float(randi_range(0,4)) * 0.05)
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("z"):
 		remove_pets()

@@ -8,7 +8,7 @@ var pos:Vector2i
 var speed = 8
 
 var state:int
-
+var isIdle = true
 
 func _ready() -> void:
 	map = get_parent().get_node("Map")
@@ -21,6 +21,8 @@ func _ready() -> void:
 	
 func  _process(_delta: float) -> void:
 	if state == 0:
+		if !isIdle:
+			return
 		if Input.is_action_pressed("ui_left"):
 			move("left")
 		elif Input.is_action_pressed("ui_right"):

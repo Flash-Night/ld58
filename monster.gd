@@ -36,25 +36,25 @@ static var monsterData:Dictionary = {
 		"name": "逆时雨",
 		"power": 4,
 		"type": 1,
-		"description": "Water"
+		"description": "雨顺时康，蛮荒草木遍芬芳。"
 	},
 	1:{
 		"name": "弥烖兵",
 		"power": 4,
 		"type": 2,
-		"description": "Fire"
+		"description": "消灾厄，弥贼兵，祸乱兹息。"
 	},
 	2:{
 		"name": "宁风旱",
 		"power": 4,
 		"type": 3,
-		"description": "Nature"
+		"description": "瑞祝通天，免有风旱涤山川。"
 	},
 	3:{
 		"name": "祈福祥",
 		"power": 3,
 		"type": 0,
-		"description": "None"
+		"description": "上祈福祥，尚使丰穰能出云。"
 	},
 	4:{
 		"name": "4",

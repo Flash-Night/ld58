@@ -68,6 +68,6 @@ func mouseEnter():
 	if !control.pets_used[id]:
 		anim.play("mouse_enter")
 
-func mouseExit():
+func mouseExit(speed:float = -0.75):
 	if !control.pets_used[id]:
-		anim.play("mouse_enter",-1, -0.75, true)
+		anim.play("mouse_enter",-1, speed, true)
