@@ -1,8 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt4nq0nkmjiit"]
+[gd_scene load_steps=9 format=3 uid="uid://dt4nq0nkmjiit"]
 
 [ext_resource type="Script" uid="uid://cycdo707stqds" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://bassvpdet8de8" path="res://images/首页.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://ccrk4mobiykqc" path="res://images/Start.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://rs3ww6y1jgai" path="res://images/StartHover.png" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://b4yg1b3f7r3di" path="res://images/bg.png" id="5_lquwl"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("startbutton", "endbutton")]
+[sub_resource type="Animation" id="Animation_lquwl"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("首页:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7mycd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("首页:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_272bh"]
+_data = {
+&"RESET": SubResource("Animation_7mycd"),
+&"fade": SubResource("Animation_lquwl")
+}
+
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,21 +50,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
-startbutton = NodePath("Button")
-endbutton = NodePath("Button2")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 465.0
-offset_top = 266.0
-offset_right = 648.0
-offset_bottom = 363.0
-text = "START"
+[node name="首页" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_0xm2m")
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 466.0
-offset_top = 396.0
-offset_right = 649.0
-offset_bottom = 493.0
-text = "END"
+offset_left = 486.0
+offset_top = 472.0
+offset_right = 791.0
+offset_bottom = 534.0
+texture_normal = ExtResource("3_h2yge")
+texture_pressed = ExtResource("3_h2yge")
+texture_hover = ExtResource("4_1bvp3")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -99
+position = Vector2(640, 360)
+texture = ExtResource("5_lquwl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_272bh")
+}

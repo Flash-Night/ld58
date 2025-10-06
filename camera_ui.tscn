@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://5rp7htiqtlyd"]
+[gd_scene load_steps=9 format=3 uid="uid://5rp7htiqtlyd"]
 
 [ext_resource type="Script" uid="uid://bb7dygvxnsmso" path="res://camera_2d.gd" id="1_js8ic"]
 [ext_resource type="Script" uid="uid://l4vnlsubjoxy" path="res://control.gd" id="2_v183y"]
 [ext_resource type="Texture2D" uid="uid://dpvyohuexx6x1" path="res://images/labels/textlabel1.png" id="3_rmcrb"]
 [ext_resource type="Script" uid="uid://chbw2jku1340n" path="res://tooltip.gd" id="3_v183y"]
+[ext_resource type="Material" uid="uid://dss2neoaeetro" path="res://shaders/cloudmat.tres" id="5_owqb8"]
+[ext_resource type="Texture2D" uid="uid://bpaoa5sa5a8sg" path="res://shaders/white.png" id="6_kwv6e"]
+[ext_resource type="Texture2D" uid="uid://b4yg1b3f7r3di" path="res://images/bg.png" id="7_kwv6e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q871f"]
 content_margin_left = 95.0
@@ -56,3 +59,12 @@ offset_top = -344.0
 offset_right = -494.0
 offset_bottom = -304.0
 text = "English"
+
+[node name="White" type="Sprite2D" parent="."]
+z_index = -10
+material = ExtResource("5_owqb8")
+texture = ExtResource("6_kwv6e")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -99
+texture = ExtResource("7_kwv6e")
