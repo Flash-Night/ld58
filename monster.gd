@@ -31,6 +31,8 @@ static var pos9 = [
 	Vector2i(1, 1)
 ]
 
+static var powerChange:PackedScene = load("res://power_change_effect.tscn")
+
 static var monsterData:Dictionary = {
 	0:{
 		"name": "逆时雨",
@@ -327,8 +329,14 @@ func update_ability(x:int)->void:
 					targetmonster.powerAdder += 1*x
 		
 func update_power()->void:
+	var dpower = power
 	power=basepower*powerMultiplier+powerAdder
 	powerLabel.text = str(power)
+	if power != dpower:
+		var pc = powerChange.instantiate()
+		get_parent().add_child(pc)
+		pc.start(self.position.x, self.position.y, power - dpower)
+	
 func capture() -> bool:
 	if !isEnemy:
 		return false

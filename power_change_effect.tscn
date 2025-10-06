@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://dth51pbme0w2g"]
+
+[ext_resource type="Script" uid="uid://d1d5xcdhcnps1" path="res://power_change_effect.gd" id="1_hvyxv"]
+
+[sub_resource type="Animation" id="Animation_t626b"]
+resource_name = "powerchange"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Vector2(-20, -11), Vector2(-20, -60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.1]
+}
+
+[sub_resource type="Animation" id="Animation_hvyxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20, -11)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5oig"]
+_data = {
+&"RESET": SubResource("Animation_hvyxv"),
+&"powerchange": SubResource("Animation_t626b")
+}
+
+[node name="PowerChangeEffect" type="Node2D"]
+script = ExtResource("1_hvyxv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Label")
+libraries = {
+&"": SubResource("AnimationLibrary_x5oig")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -11.0
+offset_right = 20.0
+offset_bottom = 17.0
+pivot_offset = Vector2(20, 14)
+theme_override_colors/font_color = Color(1, 0.2, 0.2, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 20
+text = "+1"
+horizontal_alignment = 1
