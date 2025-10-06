@@ -143,7 +143,7 @@ static var monsterData:Dictionary = {
 		"type": 3,
 		"ability": 5,
 		"description": "皿虫而俾相啖，其存者为蛊。\n周围8格同时有水火草三种属性怪物时，自身力量加1倍",
-		"description_en": "The survivor of insects cannibalizing each other on a dish called Gu. \nPower+100% if orthogonally adjacent to water, nature and fire units"
+		"description_en": "The survivor of insects cannibalizing each other on a dish called Gu. \nPower+100% if surrounding by water, nature and fire units"
 	},
 	10:{
 		"name": "BOSS",
@@ -152,7 +152,7 @@ static var monsterData:Dictionary = {
 		"type": 3,
 		"ability": 9,
 		"description": "周围八格所有草属性怪物力量+1，且每有一个草属性自身力量+1",
-		"description_en": ""
+		"description_en": "surrounding nature units power +1 and make self nature+1"
 	},
 	11:{
 		"name": "磐石",
@@ -188,7 +188,7 @@ static var monsterData:Dictionary = {
 		"type": 3,
 		"ability": 16,
 		"description": "飞行，周围8格同时有水火草三种属性怪物时，周围8格力量-1",
-		"description_en": "Uncollectable"
+		"description_en": "surrounding units power -1 if surrounding by water, nature and fire units"
 	},
 	15:{
 		"name": "祈福祥……？",
