@@ -53,14 +53,25 @@ func removeAllPets() -> Array:
 	return arr
 
 func remove_with_pos(pos:Vector2i)->void:
-	var target_monster = monsterDict[pos]
+	var target_monster:Monster = monsterDict[pos]
 	refresh_ability(pos,-1)
 	monsterDict.erase(pos)
-	remove_child(target_monster)
-	target_monster.queue_free()
 	refresh_ability(pos,1)
 	refresh_power(pos)
-	
+	#remove_child(target_monster)
+	#target_monster.queue_free()
+	target_monster.get_node("GreenFlag").hide()
+	target_monster.get_node("RedFlag").hide()
+	target_monster.get_node("PowerLabel").hide()
+	var speed = randf_range(0.5,1.0)
+	var anim:AnimationPlayer = target_monster.get_node("AnimationPlayer")
+	anim.play("remove",-1,speed)
+	anim.animation_finished.connect(free_monster.bind(target_monster))
+
+func free_monster(_anim_name:String, target_monster:Monster)->void:
+	remove_child(target_monster)
+	target_monster.queue_free()
+	print("aa")
 
 func refresh_ability(pos:Vector2i,x:int) -> void:
 	for dx in range(-1,2):

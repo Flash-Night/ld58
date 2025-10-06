@@ -1,12 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://canlrp32scija"]
+[gd_scene load_steps=8 format=3 uid="uid://canlrp32scija"]
 
 [ext_resource type="Script" uid="uid://sokpu5qrhrvu" path="res://monster.gd" id="1_s3gyj"]
 [ext_resource type="Texture2D" uid="uid://drq2uci24todu" path="res://images/icons/逆时雨.png" id="2_vr0w3"]
 [ext_resource type="Texture2D" uid="uid://oxkte1kofw0h" path="res://images/redflag.png" id="3_ga5te"]
 [ext_resource type="Texture2D" uid="uid://bwdi84l00h5p6" path="res://images/greenflag.png" id="3_vr0w3"]
 
+[sub_resource type="Animation" id="Animation_vr0w3"]
+resource_name = "remove"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6tndq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ngjm"]
+_data = {
+&"RESET": SubResource("Animation_6tndq"),
+&"remove": SubResource("Animation_vr0w3")
+}
+
 [node name="Monster" type="Node2D"]
 script = ExtResource("1_s3gyj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Icon")
+libraries = {
+&"": SubResource("AnimationLibrary_8ngjm")
+}
 
 [node name="Icon" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
