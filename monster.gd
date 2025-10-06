@@ -64,12 +64,12 @@ static var monsterData:Dictionary = {
 		"description": "Water, all orthogonally adjacent units power+1"
 	},
 	5:{
-		"name": "5",
+		"name": "寄生",
 		"power": 3,
 		"type": 3,
 		"ability": 2,
-		"description": "周围四格有水属性怪物时，自身力量+1",
-		"description_en": "Nature, power+1 when orthogonally adjacent to water unit"
+		"description": "附皮毛施于血肉，葳蕤四垂。\n周围四格每有一个水属性怪物，自身力量+1",
+		"description_en": "Nature, power+1 for every orthogonally adjacent water unit"
 	},
 	6:{
 		"name": "虺蛇",
@@ -80,20 +80,20 @@ static var monsterData:Dictionary = {
 		"description_en": " All surrounding water units power+1"
 	},
 	7:{
-		"name": "6",
+		"name": "鬼虎",
 		"power": 3,
 		"type": 2,
 		"ability": 3,
-		"description": "周围四格所有草属性怪物力量-1",
+		"description": "有青兽，人面虎身，是食人。\n周围四格所有草属性怪物力量-1",
 		"description_en": "All orthogonally adjacent nature units power-1"
 	},
 	8:{
-		"name": "寄生",
+		"name": "肥遗",
 		"power": 4,
-		"type": 3,
-		"ability": 4,
-		"description": "附皮毛施于血肉，葳蕤四垂。\n周围四格每有一个水属性怪物，自身力量+1",
-		"description_en": "Nature, power+1 for every orthogonally adjacent water unit"
+		"type": 2,
+		"ability": 0,
+		"description": "蛇六足四翼者，主千里大旱。\n飞行",
+		"description_en": "Flying"
 	},
 	9:{
 		"name": "诸怀",
