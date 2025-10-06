@@ -1,12 +1,13 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://n5621v614ib5"]
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://n5621v614ib5"]
 
 [ext_resource type="Texture2D" uid="uid://burpcw3ldaq4s" path="res://images/主角/背走.png" id="2_v1el1"]
 [ext_resource type="Texture2D" uid="uid://c4svl17hjwgxk" path="res://images/主角/背走2.png" id="3_0uk38"]
 [ext_resource type="Texture2D" uid="uid://chi7llbrfos3w" path="res://images/主角/正走1.png" id="3_xg1qe"]
-[ext_resource type="Texture2D" uid="uid://cjvgf5vp45l0f" path="res://images/主角/右面.png" id="4_0uk38"]
 [ext_resource type="Texture2D" uid="uid://bbthoq1b5u6jr" path="res://images/主角/正走2.png" id="4_jmvei"]
 [ext_resource type="Texture2D" uid="uid://d0qvio8164mg6" path="res://images/主角/zuo1.png" id="5_0uk38"]
 [ext_resource type="Texture2D" uid="uid://j4wuycqckhqg" path="res://images/主角/zuo2.png" id="6_xg1qe"]
+[ext_resource type="Texture2D" uid="uid://djq66tq61fo8b" path="res://images/主角/you1.png" id="7_xg1qe"]
+[ext_resource type="Texture2D" uid="uid://c1if21go0go3i" path="res://images/主角/you2.png" id="8_jmvei"]
 
 [resource]
 animations = [{
@@ -45,7 +46,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_0uk38")
+"texture": ExtResource("7_xg1qe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jmvei")
 }],
 "loop": false,
 "name": &"right",
