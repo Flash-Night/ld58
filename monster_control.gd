@@ -4,6 +4,8 @@ extends Control
 @onready var monsterlayer=$"../MonsterLayer"
 @onready var map=$"../Map"
 @onready var control=camera.get_node("Control")
+@onready var selectlabel = $"../Selectlabel"
+
 var buttons:Array[Button]
 var scene=preload("res://tile_button.tscn")
 var using_max=10 # 8
@@ -22,6 +24,7 @@ func _ready() -> void:
 		using_pets_id[i]=i
 		#control.show_button_monster(i,i)
 	control.game_control=self
+	selectlabel.hide()
 
 func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 	if monsterlayer.monsterDict.has(pos):
@@ -33,19 +36,26 @@ func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 
 func place_tile_buttons(id:int)->void:
 	selection = id
+	var isFly = selection == 8
 	remove_tile_buttons()
 	player.isIdle = false
+	selectlabel.showLabel()
 	var playerpos = player.pos
 	var x = playerpos.x*64.0
 	var y = playerpos.y*64.0
+	selectlabel.position.x = x + 32
+	selectlabel.position.y = y + 32
 	for i in range(7):
 		for j in range(7):
 			var pos = Vector2i(playerpos.x + i - 3,playerpos.y + j - 3)
 			buttons.append(scene.instantiate())
 			var k=i*7+j
 			add_child(buttons[k])
-			buttons[k].position.x=x-3*64+i*64
-			buttons[k].position.y=y-3*64+j*64
+			if !isDroppable(pos, isFly):
+				buttons[k].hide()
+			
+			buttons[k].position.x=x-3*64+i*64 + 4
+			buttons[k].position.y=y-3*64+j*64 + 4
 			buttons[k].z_index=10
 			buttons[k].pressed.connect(drop.bind(pos))
 			
@@ -56,6 +66,7 @@ func drop(pos):
 		monsterlayer.addPet(using_pets_id[selection], pos)
 		pets_used[selection]=true
 		control.buttons[selection].disable()
+	selectlabel.hideLabel()
 	selection = -1
 	remove_tile_buttons()
 
