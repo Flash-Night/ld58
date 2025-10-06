@@ -58,51 +58,57 @@ static var monsterData:Dictionary = {
 	},
 	4:{
 		"name": "诸怀",
+		"name_en": "Zhu Huai",
 		"power": 1,
 		"type": 1,
 		"ability": 1,
 		"description": "牛四角人目彘耳，是则害人。\n周围四格所有怪物力量+1",
-		"description_en": "All orthogonally adjacent units power+1"
+		"description_en": "A murderous monster with four horns, thick nostrils, human eyes, and pig ears. \nAll orthogonally adjacent units power+1"
 	},
 	5:{
 		"name": "寄生",
+		"name_en": "Ji Sheng",
 		"power": 3,
 		"type": 3,
 		"ability": 2,
 		"description": "附皮毛施于血肉，葳蕤四垂。\n周围四格每有一个水属性怪物，自身力量+1",
-		"description_en": "Nature, power+1 for every orthogonally adjacent water unit"
+		"description_en": "A polymeric substance attached to the fur, nourished by blood and flesh, with stems slender and dense. \nNature, power+1 for every orthogonally adjacent water unit"
 	},
 	6:{
 		"name": "虺蛇",
+		"name_en": "Hui She",
 		"power": 3,
 		"type": 1,
 		"ability": 6,
 		"description": "博三寸，首大如擘，牙最毒。\n周围八格所有水属性怪物力量+1",
-		"description_en": " All surrounding water units power+1"
+		"description_en": " A three-inches wide snake. Its head is as big as a split horn with extremely poisonous fangs. \nAll surrounding water units power+1"
 	},
 	7:{
 		"name": "鬼虎",
+		"name_en": "Gui Hu",
 		"power": 3,
 		"type": 2,
 		"ability": 3,
 		"description": "有青兽，人面虎身，是食人。\n周围四格所有草属性怪物力量-1",
-		"description_en": "All orthogonally adjacent nature units power-1"
+		"description_en": "A green beast with human face and tiger body, which likes to eat people. \nAll orthogonally adjacent nature units power-1"
 	},
 	8:{
 		"name": "肥遗",
+		"name_en": "Fei Yi",
 		"power": 3,
 		"type": 2,
 		"ability": 0,
 		"description": "蛇六足四翼者，主千里大旱。\n飞行",
-		"description_en": "Flying"
+		"description_en": "A snake with six legs and four wings, indicating a severe drought of a thousand miles. \nFlying"
 	},
 	9:{
 		"name": "蛊疫",
+		"name_en": "Gu Yi",
 		"power": 3,
 		"type": 3,
 		"ability": 5,
 		"description": "皿虫而俾相啖，其存者为蛊。\n周围四格同时有水火草三种属性怪物时，自身力量*2",
-		"description_en": "Power*2 if orthogonally adjacent to water, nature and fire units"
+		"description_en": "The survivor of insects cannibalizing each other on a dish called Gu. \nPower*2 if orthogonally adjacent to water, nature and fire units"
 	},
 	10:{
 		"name": "BOSS",
