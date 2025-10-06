@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_nsu7l")
-shader_parameter/sway_strength = 0.15
+shader_parameter/sway_strength = 0.25
 shader_parameter/sway_speed = 1.5
-shader_parameter/noise_strength = 0.5
+shader_parameter/offset = 0.1
