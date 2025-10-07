@@ -269,7 +269,7 @@ position = Vector2(3296, 864)
 id = 18
 
 [node name="Monster12" parent="MonsterLayer" instance=ExtResource("3_7jktm")]
-position = Vector2(1632, 280)
+position = Vector2(1760, 160)
 id = 13
 
 [node name="Monster13" parent="MonsterLayer" instance=ExtResource("3_7jktm")]
