@@ -32,7 +32,7 @@ func _ready() -> void:
 	if Game.language_en:
 		hintl.text = "Use monster cards to collect new monsters. \nPlace your own monsters around the target monster. \nIf the target monster is surrounded by your own monsters \nabove, below, left, and right, and all four monsters's power \nare higher than the target, you have captured and collected it."
 		hintl2.text = "Fight using each monster's ability!"
-		hintl3.text = "Press Z to wtihdraw all \nyour monsters placed"
+		hintl3.text = "↑↓←→/WASD: move\nMouse: Place monsters\nZ： wtihdraw all placed \nmonsters\n Esc: cancel selection"
 	
 func isDroppable(pos:Vector2i, isFly:bool)-> bool:
 	if monsterlayer.monsterDict.has(pos):

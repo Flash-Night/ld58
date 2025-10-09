@@ -10,8 +10,8 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q871f"]
 content_margin_left = 100.0
-content_margin_top = 55.0
-content_margin_right = 40.0
+content_margin_top = 60.0
+content_margin_right = 70.0
 content_margin_bottom = 20.0
 texture = ExtResource("3_rmcrb")
 
@@ -42,10 +42,10 @@ script = ExtResource("2_v183y")
 
 [node name="Tooltip" type="PanelContainer" parent="."]
 z_index = 99
-offset_left = 83.0
-offset_top = -371.0
-offset_right = 648.0
-offset_bottom = -168.0
+offset_left = 34.33496
+offset_top = -383.0
+offset_right = 655.0
+offset_bottom = -160.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_q871f")
 script = ExtResource("3_v183y")
 

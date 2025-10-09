@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://canlrp32scija" path="res://monster.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://5rp7htiqtlyd" path="res://camera_ui.tscn" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://bee4p3tyykrwn" path="res://images/labels/selectlabel.png" id="4_hve3p"]
-[ext_resource type="Script" path="res://selectlabel.gd" id="5_mfdv2"]
+[ext_resource type="Script" uid="uid://kuys0ohyardf" path="res://selectlabel.gd" id="5_mfdv2"]
 [ext_resource type="Texture2D" uid="uid://boltm1gbyup38" path="res://images/grass1.png" id="6_eow3j"]
 [ext_resource type="Script" uid="uid://b8lumeqhn4xss" path="res://monster_control.gd" id="6_ryrav"]
 [ext_resource type="Material" uid="uid://cmbcfxlkxxnwq" path="res://addons/TileMapDual/ghost_material.tres" id="6_vef74"]
 [ext_resource type="Script" uid="uid://cjk8nronimk5r" path="res://addons/TileMapDual/TileMapDual.gd" id="8_hve3p"]
 [ext_resource type="Texture2D" uid="uid://d35fgfp2dopfd" path="res://images/frontmap/Big stone (1).PNG" id="11_iotsf"]
-[ext_resource type="Material" path="res://shaders/windmat.tres" id="12_iotsf"]
+[ext_resource type="Material" uid="uid://cnm63qmn0ean4" path="res://shaders/windmat.tres" id="12_iotsf"]
 [ext_resource type="Texture2D" uid="uid://s26h1f6qyvcx" path="res://images/frontmap/Big stone (3).PNG" id="13_215e1"]
 [ext_resource type="Texture2D" uid="uid://bv8jsyjtl78xt" path="res://images/frontmap/Big stone (2).PNG" id="13_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://b77g75gve4twv" path="res://images/frontmap/Big stone (4).PNG" id="15_7sc4i"]
@@ -377,9 +377,10 @@ scale = Vector2(0.456, 0.456)
 texture = ExtResource("13_215e1")
 
 [node name="Textlabel4" type="Sprite2D" parent="FrontMap"]
-position = Vector2(760.00006, 179)
-scale = Vector2(0.7733862, 0.7790522)
+position = Vector2(759.96277, 177.00002)
+scale = Vector2(0.7731335, 0.9870131)
 texture = ExtResource("27_5b14r")
+flip_h = true
 
 [node name="Textlabel2" type="Sprite2D" parent="FrontMap"]
 position = Vector2(440.5, 632)
@@ -406,12 +407,15 @@ texture = ExtResource("27_5b14r")
 
 [node name="HintLabel3" type="Label" parent="FrontMap"]
 offset_left = 681.0
-offset_top = 147.0
+offset_top = 133.0
 offset_right = 846.0
-offset_bottom = 231.0
+offset_bottom = 233.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
-text = "Z键可以收回所有放置的怪物。"
+text = "上下左右/WASD移动。
+鼠标选择并放置怪物。
+Z键收回所有放置的怪物。
+Esc取消选择。"
 
 [node name="HintLabel2" type="Label" parent="FrontMap"]
 offset_left = 1161.0

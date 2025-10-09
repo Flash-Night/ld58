@@ -159,7 +159,7 @@ static var monsterData:Dictionary = {
 		"type": 2,
 		"ability": 10,
 		"description": "有青兽，人面虎身，是食人。\n周围八格存在2个或以上火属性怪物时，周围八格怪物力量-1",
-		"description_en": "A green beast with human face and tiger body, which likes to eat people. \nIf surrounding by 2 or more fire units all surrounding units power-1"
+		"description_en": "A green beast with human face and tiger body, which likes to eat people. \nIf surrounded by 2 or more fire units, all surrounding units power-1"
 	},
 	12:{
 		"name": "鬼虎",
@@ -168,7 +168,7 @@ static var monsterData:Dictionary = {
 		"type": 2,
 		"ability": 11,
 		"description": "有青兽，人面虎身，是食人。\n周围八格存在2个或以上火属性怪物时，力量+1",
-		"description_en": "A green beast with human face and tiger body, which likes to eat people. \nIf surrounding by 2 or more fire units power+1"
+		"description_en": "A green beast with human face and tiger body, which likes to eat people. \nIf surrounded by 2 or more fire units, self power+1"
 	},
 	13:{
 		"name": "肥遗",
