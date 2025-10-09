@@ -23,13 +23,13 @@ func  _process(_delta: float) -> void:
 	if state == 0:
 		if !isIdle:
 			return
-		if Input.is_action_pressed("ui_left"):
+		if Input.is_action_pressed("ui_left")||Input.is_action_pressed("a"):
 			move("left")
-		elif Input.is_action_pressed("ui_right"):
+		elif Input.is_action_pressed("ui_right")||Input.is_action_pressed("d"):
 			move("right")
-		elif Input.is_action_pressed("ui_up"):
+		elif Input.is_action_pressed("ui_up")||Input.is_action_pressed("w"):
 			move("back")
-		elif Input.is_action_pressed("ui_down"):
+		elif Input.is_action_pressed("ui_down")||Input.is_action_pressed("s"):
 			move("front")
 	elif state == 1:
 		moving()
